@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Kapka života</string>
+    <string name="title_activity_main">Kapka života</string>
+    <string name="package_name">cz.kapkazivota.app</string>
+    <string name="custom_url_scheme">cz.kapkazivota.app</string>
+</resources>

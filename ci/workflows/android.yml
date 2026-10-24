@@ -1,0 +1,51 @@
+name: Android (Capacitor debug APK)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-apk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+      - name: Install SDK packages
+        run: |
+          sdkmanager "platforms;android-34" "build-tools;34.0.0"
+      - name: Build debug APK
+        working-directory: mobile
+        run: |
+          npm install --no-fund --no-audit
+          npm run sync-www
+          npx cap sync android
+          cd android
+          chmod +x gradlew
+          ./gradlew assembleDebug --no-daemon
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: kapka-zivota-android-debug
+          path: mobile/android/app/build/outputs/apk/debug/app-debug.apk
+      - name: Draft prerelease APK
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: test-android-${{ github.run_number }}
+          name: Test Android APK #${{ github.run_number }}
+          draft: true
+          prerelease: true
+          body: |
+            Testovací debug APK Kapky života (Capacitor).
+            **Není finální release.** Instalace na Redmi Pad SE: povolit instalaci z neznámých zdrojů.
+            Data: klíč `kapka-zivota-v1`. Přenos z Chrome PWA přes Export / obnovu JSON.
+          files: mobile/android/app/build/outputs/apk/debug/app-debug.apk

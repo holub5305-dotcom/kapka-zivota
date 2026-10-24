@@ -1,0 +1,19 @@
+{
+  "name": "kapka-zivota-mobile",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Capacitor Android wrapper for Kapka života",
+  "scripts": {
+    "sync-www": "bash ../scripts/sync-www.sh",
+    "sync": "npm run sync-www && npx cap sync android",
+    "open": "npx cap open android",
+    "build:apk": "npm run sync && cd android && ./gradlew assembleDebug"
+  },
+  "dependencies": {
+    "@capacitor/android": "^6.2.0",
+    "@capacitor/core": "^6.2.0"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^6.2.0"
+  }
+}

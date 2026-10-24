@@ -23,8 +23,19 @@
         </header>
 
         <div class="card">
+          <h2 class="card-title">Přenos mezi verzemi</h2>
+          <p>Data v prohlížeči (Chrome PWA), v aplikaci pro Android a ve Windows aplikaci jsou <strong>oddělená úložiště</strong>. Klíč zůstává <code>kapka-zivota-v1</code>, ale automaticky se mezi sebou nesdílejí.</p>
+          <ol class="bullets">
+            <li>V původní verzi klepněte na <strong>Stáhnout zálohu</strong> a uložte soubor JSON.</li>
+            <li>V nové aplikaci otevřete Více → Export a obnova a soubor načtěte.</li>
+            <li>Zvolte <strong>Sloučit</strong> (bezpečnější) nebo <strong>Nahradit</strong> (s dvojím potvrzením).</li>
+          </ol>
+          <p class="muted">Před větším přenosem si vždy nechte export jako zálohu.</p>
+        </div>
+
+        <div class="card">
           <h2 class="card-title">Export</h2>
-          <p>Stáhne soubor JSON s ${state.donations.length} odběry a ${state.reminders.length} připomínkami. Soubor uložte na bezpečné místo.</p>
+          <p>Stáhne soubor JSON s ${state.donations.length} odběry a ${state.reminders.length} připomínkami. Soubor uložte na bezpečné místo (např. Disk, e-mail sobě).</p>
           <button type="button" class="btn btn-primary" id="do-export">Stáhnout zálohu</button>
         </div>
 

@@ -27,7 +27,8 @@
 
         <div class="card stack gap-sm">
           <h2 class="card-title">Data a soukromí</h2>
-          <p>Všechny Vaše záznamy (deník, připomínky) zůstávají v tomto zařízení (localStorage). Aplikace neodesílá data na server a nevyžaduje registraci.</p>
+          <p>Všechny Vaše záznamy (deník, připomínky) zůstávají v tomto zařízení (localStorage, klíč kapka-zivota-v1). Aplikace neodesílá data na server a nevyžaduje registraci.</p>
+          <p class="muted">Webová PWA, Android APK a Windows aplikace mají každé vlastní úložiště — přenos jen přes Export / obnovu.</p>
           <button type="button" class="btn btn-secondary" data-go="backup">Export a obnova dat</button>
           <button type="button" class="btn btn-ghost" data-go="reminders">Připomínky a oznámení</button>
           <button type="button" class="btn btn-ghost" data-go="newdonor">Informace pro nové dárce</button>

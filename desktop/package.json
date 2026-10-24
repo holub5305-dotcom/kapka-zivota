@@ -1,0 +1,15 @@
+{
+  "name": "kapka-zivota-desktop",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Tauri Windows wrapper for Kapka života",
+  "scripts": {
+    "sync-www": "bash ../scripts/sync-www.sh",
+    "tauri": "tauri",
+    "build": "npm run sync-www && tauri build",
+    "dev": "npm run sync-www && tauri dev"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.1.0"
+  }
+}

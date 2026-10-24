@@ -56,3 +56,42 @@ node tests/stations.test.js
 
 Statické soubory — vhodné pro Firebase Hosting nebo GitHub Pages.  
 **Nasazení až po výslovném souhlasu majitele projektu.**
+
+
+## Nativní obaly (test)
+
+Webová PWA na GitHub Pages zůstává zdrojem pravdy. Nativní projekty jsou **přídavné** a nesmí mazat kořenové soubory PWA.
+
+| Platforma | Složka | Stack |
+|-----------|--------|--------|
+| Android | `mobile/` | Capacitor 6, app id `cz.kapkazivota.app` |
+| Windows | `desktop/` | Tauri 2 (build přes GitHub Actions `windows.yml`) |
+
+### Synchronizace webových souborů
+
+```bash
+bash scripts/sync-www.sh
+```
+
+Zkopíruje `index.html`, `css/`, `js/`, `data/`, `icons/`, manifest a `sw.js` do `mobile/www` a `desktop/www`.
+
+### Android (debug APK)
+
+```bash
+cd mobile
+npm install
+npm run sync-www
+npx cap sync android
+cd android && ./gradlew assembleDebug
+# výstup: android/app/build/outputs/apk/debug/app-debug.apk
+```
+
+Šablona workflow: `ci/workflows/android.yml` — zkopírujte do `.github/workflows/` (token musí mít scope `workflow`) a spusťte v Actions.
+
+### Windows (NSIS / MSI)
+
+Na Linuxu se Windows instalátor nestaví. Šablona: `ci/workflows/windows.yml` → zkopírujte do `.github/workflows/` a spusťte v Actions (NSIS/MSI artefakty + draft prerelease).
+
+### Přenos dat mezi PWA a nativní app
+
+Úložiště je vždy klíč **`kapka-zivota-v1`**, ale každé prostředí (Chrome / APK / Windows) má vlastní data. Exportujte JSON ve Více → Export a obnova, v nové app soubor načtěte (Sloučit / Nahradit).

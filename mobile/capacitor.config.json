@@ -1,0 +1,11 @@
+{
+  "appId": "cz.kapkazivota.app",
+  "appName": "Kapka života",
+  "webDir": "www",
+  "android": {
+    "allowMixedContent": false
+  },
+  "server": {
+    "androidScheme": "https"
+  }
+}
