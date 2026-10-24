@@ -1,5 +1,5 @@
 /* Kapka života — service worker */
-const CACHE = 'kapka-zivota-shell-v2';
+const CACHE = 'kapka-zivota-shell-v3';
 const PRECACHE = [
   './',
   './index.html',
