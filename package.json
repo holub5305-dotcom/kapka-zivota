@@ -1,0 +1,10 @@
+{
+  "name": "kapka-zivota",
+  "version": "1.0.0",
+  "private": true,
+  "description": "PWA Kapka života — dárcovský deník a stanice ČR",
+  "scripts": {
+    "start": "npx --yes serve -l 4173 .",
+    "test": "node tests/store.test.js && node tests/stations.test.js"
+  }
+}

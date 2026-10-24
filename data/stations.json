@@ -1,0 +1,1840 @@
+[
+  {
+    "id": "uvn-praha",
+    "name": "Oddělení hematologie a krevní transfuze ÚVN",
+    "organization": "Ústřední vojenská nemocnice Praha",
+    "city": "Praha",
+    "address": "U Vojenské nemocnice 1200/1, 162 00 Praha 6",
+    "kraj": "Hlavní město Praha",
+    "phone": "+420 973 203 217",
+    "email": "ohbkt@uvn.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "ftn-praha",
+    "name": "Transfuzní oddělení",
+    "organization": "Fakultní Thomayerova nemocnice",
+    "city": "Praha",
+    "address": "Vídeňská 800/5, 140 00 Praha",
+    "kraj": "Hlavní město Praha",
+    "phone": "+420 261 082 436",
+    "email": "darci@ftn.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "vfn-nemocnice",
+    "name": "Fakultní transfuzní oddělení",
+    "organization": "Všeobecná fakultní nemocnice v Praze",
+    "city": "Praha",
+    "address": "U nemocnice 499/2, 128 00 Praha",
+    "kraj": "Hlavní město Praha",
+    "phone": "+420 224 963 112",
+    "email": "fto@vfn.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "uhkt",
+    "name": "Ústav hematologie a krevní transfuze",
+    "organization": "ÚHKT",
+    "city": "Praha",
+    "address": "U Nemocnice 2094/1, 128 00 Praha",
+    "kraj": "Hlavní město Praha",
+    "phone": "+420 221 977 209",
+    "email": "darce@uhkt.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "fnkv",
+    "name": "Transfuzní oddělení",
+    "organization": "FN Královské Vinohrady",
+    "city": "Praha",
+    "address": "Šrobárova 1150/50, 100 00 Praha",
+    "kraj": "Hlavní město Praha",
+    "phone": "+420 267 163 945",
+    "email": "darci@fnkv.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "vfn-zbraslav",
+    "name": "Fakultní transfuzní oddělení — Zbraslav",
+    "organization": "Všeobecná fakultní nemocnice v Praze",
+    "city": "Praha",
+    "address": "K interně 640, 156 00 Praha",
+    "kraj": "Hlavní město Praha",
+    "phone": "+420 225 374 230",
+    "email": "fto-evidence@vfn.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "boskovice",
+    "name": "Hematologicko-transfuzní oddělení",
+    "organization": "Nemocnice Boskovice",
+    "city": "Boskovice",
+    "address": "Otakara Kubína 179/11a, 680 01 Boskovice",
+    "kraj": "Jihomoravský",
+    "phone": "+420 516 491 552",
+    "email": "olga.klimova@nembce.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "fn-brno",
+    "name": "Transfuzní a tkáňové oddělení",
+    "organization": "Fakultní nemocnice Brno",
+    "city": "Brno",
+    "address": "Jihlavská 340/20, 625 00 Brno",
+    "kraj": "Jihomoravský",
+    "phone": "+420 532 232 997",
+    "email": "adamcova.martina@fnbrno.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "breclav-nem",
+    "name": "Hematologicko transfuzní oddělení",
+    "organization": "Nemocnice Břeclav",
+    "city": "Břeclav",
+    "address": "U Nemocnice 3066/1, 690 02 Břeclav",
+    "kraj": "Jihomoravský",
+    "phone": "+420 519 315 162",
+    "email": "dokumentace_nts@nembv.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "hodonin-tgm",
+    "name": "Pracoviště hematologie a transfuzní služby",
+    "organization": "Nemocnice TGM Hodonín",
+    "city": "Hodonín",
+    "address": "Purkyňova 2731/11, 695 01 Hodonín",
+    "kraj": "Jihomoravský",
+    "phone": "+420 518 306 219",
+    "email": "zahradkova@nemho.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "kyjov",
+    "name": "Transfuzní oddělení",
+    "organization": "Nemocnice Kyjov",
+    "city": "Kyjov",
+    "address": "Strážovská 1247, 697 01 Kyjov",
+    "kraj": "Jihomoravský",
+    "phone": "+420 518 601 697",
+    "email": "polackova.stanislava@nemkyj.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "vyskov",
+    "name": "Hematologicko transfuzní oddělení",
+    "organization": "Nemocnice Vyškov",
+    "city": "Vyškov",
+    "address": "Purkyňova 235/36, 682 01 Vyškov",
+    "kraj": "Jihomoravský",
+    "phone": "+420 517 315 450",
+    "email": "zavodna@nemvy.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "znojmo",
+    "name": "Hematologicko transfuzní oddělení",
+    "organization": "Nemocnice Znojmo",
+    "city": "Znojmo",
+    "address": "MUDr. Jana Janského 2675/11, 669 02 Znojmo",
+    "kraj": "Jihomoravský",
+    "phone": "+420 515 215 458",
+    "email": "darci.hto@nemzn.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev",
+      "Plazma"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem (plazma: +420 515 215 461)",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "nem-cb",
+    "name": "Transfuzní oddělení",
+    "organization": "Nemocnice České Budějovice",
+    "city": "České Budějovice",
+    "address": "B. Němcové 585/54, 370 01 České Budějovice",
+    "kraj": "Jihočeský",
+    "phone": "+420 387 873 331",
+    "email": "odbery@nemcb.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "nem-jh",
+    "name": "Oddělení hematologie a krevní transfuze",
+    "organization": "Nemocnice Jindřichův Hradec",
+    "city": "Jindřichův Hradec",
+    "address": "U Nemocnice 380, 377 01 Jindřichův Hradec",
+    "kraj": "Jihočeský",
+    "phone": "+420 384 376 330",
+    "email": "ohts@nemjh.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "nem-pisek",
+    "name": "Hematologicko transfuzní oddělení",
+    "organization": "Nemocnice Písek",
+    "city": "Písek",
+    "address": "Karla Čapka 589, 397 01 Písek",
+    "kraj": "Jihočeský",
+    "phone": "+420 382 772 429",
+    "email": "to-pisek@nemopisek.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "strakonice-odber",
+    "name": "Odběrové středisko dárců krve Strakonice",
+    "organization": "Nemocnice České Budějovice",
+    "city": "Strakonice",
+    "address": "Radomyšlská 336, 386 01 Strakonice",
+    "kraj": "Jihočeský",
+    "phone": "+420 383 314 345",
+    "email": "",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "tabor-dvorak",
+    "name": "Transfuzní pracoviště",
+    "organization": "MUDr. Karel Dvořák",
+    "city": "Tábor",
+    "address": "Kpt. Jaroše 2999, 390 03 Tábor",
+    "kraj": "Jihočeský",
+    "phone": "+420 381 235 142",
+    "email": "dvorak@transfuze.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "cheb-kkn",
+    "name": "Odběrové středisko dárců krve Cheb",
+    "organization": "Karlovarská krajská nemocnice",
+    "city": "Cheb",
+    "address": "K Nemocnici 1204/17, 350 02 Cheb",
+    "kraj": "Karlovarský",
+    "phone": "+420 354 226 454",
+    "email": "info@kkn.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "kv-kkn",
+    "name": "Odběrové středisko / transfuzní služba",
+    "organization": "Karlovarská krajská nemocnice",
+    "city": "Karlovy Vary",
+    "address": "Vítězná 795/10, 360 01 Karlovy Vary",
+    "kraj": "Karlovarský",
+    "phone": "+420 354 225 449",
+    "email": "eva.novakova@kkn.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "sokolov",
+    "name": "Transfuzní služba",
+    "organization": "NEMOS Sokolov",
+    "city": "Sokolov",
+    "address": "Jednoty 626, 356 01 Sokolov",
+    "kraj": "Karlovarský",
+    "phone": "+420 352 622 909",
+    "email": "zuzana.fialova@nemosok.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "fnhk",
+    "name": "Transfuzní oddělení",
+    "organization": "FN Hradec Králové",
+    "city": "Hradec Králové",
+    "address": "Sokolská 581, 500 03 Hradec Králové",
+    "kraj": "Královéhradecký",
+    "phone": "+420 495 833 420",
+    "email": "odberkrve@fnhk.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev",
+      "Plazma"
+    ],
+    "booking": "Krev: +420 495 833 420 · Plazma: +420 495 833 712",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "jicin",
+    "name": "Oddělení transfuzní a hematologické",
+    "organization": "Oblastní nemocnice Jičín",
+    "city": "Jičín",
+    "address": "Bolzanova 512, 506 01 Jičín",
+    "kraj": "Královéhradecký",
+    "phone": "+420 493 582 588",
+    "email": "darci@nemjc.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "nachod",
+    "name": "Pracoviště transfuzní služby",
+    "organization": "Oblastní nemocnice Náchod",
+    "city": "Náchod",
+    "address": "Purkyňova 440, 547 01 Náchod",
+    "kraj": "Královéhradecký",
+    "phone": "+420 491 601 427",
+    "email": "info@nemocnicenachod.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "trutnov",
+    "name": "Transfuzní a hematologické oddělení",
+    "organization": "Oblastní nemocnice Trutnov",
+    "city": "Trutnov",
+    "address": "Maxima Gorkého 77, 541 01 Trutnov",
+    "kraj": "Královéhradecký",
+    "phone": "+420 499 811 272",
+    "email": "kuncar.josef@nemtru.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "ceska-lipa",
+    "name": "Hematologicko transfuzní oddělení",
+    "organization": "Nemocnice s poliklinikou Česká Lípa",
+    "city": "Česká Lípa",
+    "address": "Purkyňova 1849, 470 01 Česká Lípa",
+    "kraj": "Liberecký",
+    "phone": "+420 487 954 405",
+    "email": "darci@nemcl.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "jilemnice",
+    "name": "Odběrové středisko dárců krve Jilemnice",
+    "organization": "Ústřední vojenská nemocnice Praha",
+    "city": "Jilemnice",
+    "address": "Metyšova 465, 514 01 Jilemnice",
+    "kraj": "Liberecký",
+    "phone": "+420 481 551 159",
+    "email": "ohbkt@uvn.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "knl",
+    "name": "Transfuzní oddělení",
+    "organization": "Krajská nemocnice Liberec",
+    "city": "Liberec",
+    "address": "Baarova 526/15, 460 01 Liberec",
+    "kraj": "Liberecký",
+    "phone": "+420 800 100 091",
+    "email": "transfuzni@nemlib.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "bruntal-tsl",
+    "name": "Pracoviště Bruntál",
+    "organization": "Transfúzní služba a.s. (AGEL)",
+    "city": "Bruntál",
+    "address": "Nádražní 29, 792 01 Bruntál",
+    "kraj": "Moravskoslezský",
+    "phone": "+420 800 300 900",
+    "email": "evidence.bruntal@tsl.agel.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "krevni-centrum-fm",
+    "name": "Krevní centrum",
+    "organization": "Krevní centrum s.r.o.",
+    "city": "Frýdek-Místek",
+    "address": "tř. T. G. Masaryka 495, 738 01 Frýdek-Místek",
+    "kraj": "Moravskoslezský",
+    "phone": "+420 558 605 008",
+    "email": "info@krevnicentrum.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "nem-fm",
+    "name": "Hematologicko transfuzní oddělení",
+    "organization": "Nemocnice ve Frýdku-Místku",
+    "city": "Frýdek-Místek",
+    "address": "El. Krásnohorské 321, 738 01 Frýdek-Místek",
+    "kraj": "Moravskoslezský",
+    "phone": "+420 558 415 835",
+    "email": "vaculova@nemfm.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "karvina-raj",
+    "name": "Hematologicko transfuzní oddělení",
+    "organization": "Nemocnice s poliklinikou Karviná-Ráj",
+    "city": "Karviná",
+    "address": "Vydmuchov 399/5, 734 01 Karviná",
+    "kraj": "Moravskoslezský",
+    "phone": "+420 596 383 559",
+    "email": "janek@nspka.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "novy-jicin",
+    "name": "Transfúzní oddělení",
+    "organization": "Nemocnice s poliklinikou v Novém Jičíně",
+    "city": "Nový Jičín",
+    "address": "Purkyňova 2138/16, 741 01 Nový Jičín",
+    "kraj": "Moravskoslezský",
+    "phone": "+420 556 773 471",
+    "email": "martin.brejcha@nnj.agel.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "opava",
+    "name": "Hematologicko-transfuzní oddělení",
+    "organization": "Slezská nemocnice v Opavě",
+    "city": "Opava",
+    "address": "Olomoucká 470/86, 746 01 Opava",
+    "kraj": "Moravskoslezský",
+    "phone": "+420 553 766 493",
+    "email": "lukas.stejskal@snopava.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "fno",
+    "name": "Krevní centrum",
+    "organization": "FN Ostrava",
+    "city": "Ostrava",
+    "address": "17. listopadu 1790/5, 708 00 Ostrava",
+    "kraj": "Moravskoslezský",
+    "phone": "+420 800 260 004",
+    "email": "krevni.centrum@fno.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "trinec",
+    "name": "Hematologicko transfuzní oddělení",
+    "organization": "Nemocnice Třinec",
+    "city": "Třinec",
+    "address": "Kaštanová 268, 739 61 Třinec",
+    "kraj": "Moravskoslezský",
+    "phone": "+420 558 309 627",
+    "email": "Vera.Farbiakova@nemtr.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "hranice",
+    "name": "Hematologicko transfuzní oddělení",
+    "organization": "Nemocnice Hranice",
+    "city": "Hranice",
+    "address": "Zborovská 1245, 753 01 Hranice",
+    "kraj": "Olomoucký",
+    "phone": "+420 581 679 358",
+    "email": "vinklarkova@nemocnice-hranice.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "jesenik",
+    "name": "Transfuzní služba",
+    "organization": "Jesenická nemocnice",
+    "city": "Jeseník",
+    "address": "Lipovská 103/39, 790 01 Jeseník",
+    "kraj": "Olomoucký",
+    "phone": "+420 584 458 441",
+    "email": "dagmar.adamova@jen.agel.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "fnol",
+    "name": "Transfuzní oddělení",
+    "organization": "Fakultní nemocnice Olomouc",
+    "city": "Olomouc",
+    "address": "I. P. Pavlova 185/6, 779 00 Olomouc",
+    "kraj": "Olomoucký",
+    "phone": "+420 588 442 236",
+    "email": "krevjedar@fnol.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "prostejov",
+    "name": "Hematologicko-transfuzní oddělení",
+    "organization": "Nemocnice Prostějov (AGEL)",
+    "city": "Prostějov",
+    "address": "Mathonova 291/1, 796 04 Prostějov",
+    "kraj": "Olomoucký",
+    "phone": "+420 582 315 210",
+    "email": "transfuzka@npv.agel.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "prerov",
+    "name": "Hematologicko-transfuzní oddělení",
+    "organization": "Nemocnice Přerov (AGEL)",
+    "city": "Přerov",
+    "address": "Dvořákova 1800/75, 750 02 Přerov",
+    "kraj": "Olomoucký",
+    "phone": "+420 581 271 103",
+    "email": "transfuzni@npr.agel.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "sumperk-tsl",
+    "name": "Pracoviště Šumperk",
+    "organization": "Transfúzní služba a.s. (AGEL)",
+    "city": "Šumperk",
+    "address": "Nemocniční 1788/53a, 787 01 Šumperk",
+    "kraj": "Olomoucký",
+    "phone": "+420 800 300 600",
+    "email": "evidence.spk@tsl.agel.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "chrudim",
+    "name": "Transfuzní služba",
+    "organization": "Chrudimská nemocnice",
+    "city": "Chrudim",
+    "address": "Václavská 570, 537 01 Chrudim",
+    "kraj": "Pardubický",
+    "phone": "+420 469 653 492",
+    "email": "darcikrve.chn@nempk.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "litomysl",
+    "name": "Hematologicko transfuzní oddělení",
+    "organization": "Litomyšlská nemocnice (NPK)",
+    "city": "Litomyšl",
+    "address": "J. E. Purkyně 652, 570 01 Litomyšl",
+    "kraj": "Pardubický",
+    "phone": "+420 461 655 436",
+    "email": "hto.lin@nempk.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "pardubice-nem",
+    "name": "Transfuzní služba",
+    "organization": "Pardubická nemocnice (NPK)",
+    "city": "Pardubice",
+    "address": "Kyjevská 44, 530 03 Pardubice",
+    "kraj": "Pardubický",
+    "phone": "+420 466 014 906",
+    "email": "darci.pkn@nempk.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "svitavy",
+    "name": "Hematologicko transfúzní oddělení",
+    "organization": "Svitavská nemocnice (NPK)",
+    "city": "Svitavy",
+    "address": "U Nemocnice 2212/6, 568 02 Svitavy",
+    "kraj": "Pardubický",
+    "phone": "+420 461 569 411",
+    "email": "hto.syn@nempk.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "usti-orlici",
+    "name": "Hematologicko transfuzní oddělení",
+    "organization": "Orlickoústecká nemocnice",
+    "city": "Ústí nad Orlicí",
+    "address": "Čs. armády 1076, 562 01 Ústí nad Orlicí",
+    "kraj": "Pardubický",
+    "phone": "+420 465 710 423",
+    "email": "",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "klatovy",
+    "name": "Transfuzní oddělení",
+    "organization": "Klatovská nemocnice",
+    "city": "Klatovy",
+    "address": "Plzeňská 929, 339 01 Klatovy",
+    "kraj": "Plzeňský",
+    "phone": "+420 376 335 862",
+    "email": "tran@nemkt.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "fn-plzen",
+    "name": "Transfuzní oddělení",
+    "organization": "FN Plzeň",
+    "city": "Plzeň",
+    "address": "Edvarda Beneše 1128/13, 301 00 Plzeň",
+    "kraj": "Plzeňský",
+    "phone": "+420 377 402 818",
+    "email": "todarci@fnplzen.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "rokycany",
+    "name": "Hematologicko-transfuzní oddělení",
+    "organization": "FN Plzeň — Rokycany",
+    "city": "Rokycany",
+    "address": "Voldušská 750/II, 337 01 Rokycany",
+    "kraj": "Plzeňský",
+    "phone": "+420 371 762 296",
+    "email": "hto@rokycany.nemocnicepk.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "horovice",
+    "name": "Hematologicko transfuzní oddělení",
+    "organization": "Nemocnice Hořovice",
+    "city": "Hořovice",
+    "address": "K Nemocnici 1106/14, 268 01 Hořovice",
+    "kraj": "Středočeský",
+    "phone": "+420 311 559 402",
+    "email": "darci@nemocnice-horovice.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "benesov",
+    "name": "Transfuzní a hematologické oddělení",
+    "organization": "Nemocnice Rudolfa a Stefanie Benešov",
+    "city": "Benešov",
+    "address": "Máchova 400, 256 01 Benešov",
+    "kraj": "Středočeský",
+    "phone": "+420 317 756 472",
+    "email": "hem@hospital-bn.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "caslav",
+    "name": "Hematologicko transfuzní oddělení",
+    "organization": "Městská nemocnice Čáslav",
+    "city": "Čáslav",
+    "address": "Jeníkovská 348/17, 286 01 Čáslav",
+    "kraj": "Středočeský",
+    "phone": "+420 327 305 249",
+    "email": "hto@nemcaslav.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "kladno-nem",
+    "name": "Hematologicko transfuzní oddělení",
+    "organization": "Oblastní nemocnice Kladno",
+    "city": "Kladno",
+    "address": "Vančurova 1548, 272 01 Kladno",
+    "kraj": "Středočeský",
+    "phone": "+420 312 606 343",
+    "email": "hto@nemocnicekladno.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "kolin-nem",
+    "name": "Transfuzní a hematologické oddělení",
+    "organization": "Oblastní nemocnice Kolín",
+    "city": "Kolín",
+    "address": "Žižkova 146, 280 02 Kolín",
+    "kraj": "Středočeský",
+    "phone": "+420 321 756 596",
+    "email": "dagmar.chalupova@nemocnicekolin.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "melnik-uvn",
+    "name": "Odběrové středisko dárců krve Mělník",
+    "organization": "Ústřední vojenská nemocnice Praha",
+    "city": "Mělník",
+    "address": "Pražská 528/29, 276 01 Mělník",
+    "kraj": "Středočeský",
+    "phone": "+420 601 362 328",
+    "email": "ohbkt@uvn.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "mlada-boleslav-nem",
+    "name": "Hematologicko transfuzní oddělení",
+    "organization": "Oblastní nemocnice Mladá Boleslav",
+    "city": "Mladá Boleslav",
+    "address": "tř. Václava Klementa 147/23, 293 01 Mladá Boleslav",
+    "kraj": "Středočeský",
+    "phone": "+420 326 743 404",
+    "email": "jarmila.obernauerova@onmb.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "pribram",
+    "name": "Odběrové středisko dárců krve Příbram",
+    "organization": "Oblastní nemocnice Příbram",
+    "city": "Příbram",
+    "address": "Gen. R. Tesaříka 80, 261 01 Příbram",
+    "kraj": "Středočeský",
+    "phone": "+420 318 641 002",
+    "email": "magda.nohejlova@onp.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "hb",
+    "name": "Hematologicko-transfuzní oddělení",
+    "organization": "Nemocnice Havlíčkův Brod",
+    "city": "Havlíčkův Brod",
+    "address": "Husova 2624, 580 01 Havlíčkův Brod",
+    "kraj": "Vysočina",
+    "phone": "+420 569 472 221",
+    "email": "lenka.lakoma@onhb.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Dárci: +420 569 472 279",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "jihlava-nem",
+    "name": "Hematologicko transfuzní oddělení",
+    "organization": "Nemocnice Jihlava",
+    "city": "Jihlava",
+    "address": "Vrchlického 4630/59, 586 01 Jihlava",
+    "kraj": "Vysočina",
+    "phone": "+420 800 100 876",
+    "email": "darci@nemji.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "nnm",
+    "name": "Oddělení klinických laboratoří a transfuzní služby",
+    "organization": "Nemocnice Nové Město na Moravě",
+    "city": "Nové Město na Moravě",
+    "address": "Žďárská 610, 592 31 Nové Město na Moravě",
+    "kraj": "Vysočina",
+    "phone": "+420 566 801 526",
+    "email": "vlasta.musilova@nnm.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "pelhrimov-nem",
+    "name": "Oddělení hematologie a transfúziologie",
+    "organization": "Nemocnice Pelhřimov",
+    "city": "Pelhřimov",
+    "address": "Slovanského bratrství 710, 393 01 Pelhřimov",
+    "kraj": "Vysočina",
+    "phone": "+420 565 355 466",
+    "email": "oht@nempe.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "trebic-fnbrno",
+    "name": "Odběrové středisko dárců krve Třebíč — Jejkov",
+    "organization": "Fakultní nemocnice Brno",
+    "city": "Třebíč",
+    "address": "Purkyňovo nám. 133/2, 674 01 Třebíč",
+    "kraj": "Vysočina",
+    "phone": "+420 800 700 061",
+    "email": "mdudikov@fnbrno.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "kromeriz",
+    "name": "Transfuzní a hematologické oddělení",
+    "organization": "Kroměřížská nemocnice",
+    "city": "Kroměříž",
+    "address": "Havlíčkova 660/69, 767 01 Kroměříž",
+    "kraj": "Zlínský",
+    "phone": "+420 573 322 417",
+    "email": "darci@nem-km.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "uh",
+    "name": "Transfuzní služba",
+    "organization": "Uherskohradišťská nemocnice",
+    "city": "Uherské Hradiště",
+    "address": "J. E. Purkyně 365, 686 06 Uherské Hradiště",
+    "kraj": "Zlínský",
+    "phone": "+420 572 529 809",
+    "email": "",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Objednání: darcovstvi.nemuh.cz (ověřte na webu nemocnice)",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "vsetin",
+    "name": "Hematologicko transfuzní oddělení",
+    "organization": "Vsetínská nemocnice",
+    "city": "Vsetín",
+    "address": "Nemocniční 955, 755 01 Vsetín",
+    "kraj": "Zlínský",
+    "phone": "+420 571 818 602",
+    "email": "kasparova.marie.hto@nemocnice-vs.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "zlin-bata",
+    "name": "Transfuzní služba",
+    "organization": "Krajská nemocnice T. Bati Zlín",
+    "city": "Zlín",
+    "address": "Havlíčkovo nábřeží 600, 760 01 Zlín",
+    "kraj": "Zlínský",
+    "phone": "+420 577 552 322",
+    "email": "zvani_darcu@bnzlin.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "decin",
+    "name": "LTS — oddělení laboratoří a transfuzní služby",
+    "organization": "Nemocnice Děčín (KZ)",
+    "city": "Děčín",
+    "address": "U Nemocnice 604/1, 405 02 Děčín",
+    "kraj": "Ústecký",
+    "phone": "+420 412 705 421",
+    "email": "DarciKrve.DC@kzcr.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "chomutov-nem",
+    "name": "Hematologicko transfuzní oddělení",
+    "organization": "Nemocnice Chomutov (KZ)",
+    "city": "Chomutov",
+    "address": "Kochova 1185, 430 01 Chomutov",
+    "kraj": "Ústecký",
+    "phone": "+420 474 447 647",
+    "email": "cv_darci@kzcr.eu",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "kadan",
+    "name": "Transfuzní odběrové centrum",
+    "organization": "Nemocnice Kadaň / VFN Praha",
+    "city": "Kadaň",
+    "address": "Golovinova 1559, 432 01 Kadaň",
+    "kraj": "Ústecký",
+    "phone": "+420 474 944 387",
+    "email": "transfuze@nemkadan.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "louny-uvn",
+    "name": "Odběrové středisko dárců krve Louny",
+    "organization": "Ústřední vojenská nemocnice Praha",
+    "city": "Louny",
+    "address": "Rybalkova 1400, 440 01 Louny",
+    "kraj": "Ústecký",
+    "phone": "+420 415 620 236",
+    "email": "ohbkt@uvn.cz",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "most-nem",
+    "name": "Transfúzní oddělení",
+    "organization": "Nemocnice Most (KZ)",
+    "city": "Most",
+    "address": "J. E. Purkyně 270/5, 434 01 Most",
+    "kraj": "Ústecký",
+    "phone": "+420 478 032 583",
+    "email": "mo_darci@kzcr.eu",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "teplice",
+    "name": "Oddělení transfúze a hematologie",
+    "organization": "Nemocnice Teplice (KZ)",
+    "city": "Teplice",
+    "address": "Duchcovská 962/53, 415 01 Teplice",
+    "kraj": "Ústecký",
+    "phone": "+420 417 519 737",
+    "email": "tptrans@kzcr.eu",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "usti-nl",
+    "name": "Transfuzní služba",
+    "organization": "Masarykova nemocnice Ústí nad Labem (KZ)",
+    "city": "Ústí nad Labem",
+    "address": "Sociální péče 3316/12a, 400 11 Ústí nad Labem",
+    "kraj": "Ústecký",
+    "phone": "+420 477 113 468",
+    "email": "darci@kzcr.eu",
+    "web": "",
+    "kind": "Nemocniční",
+    "types": [
+      "Krev"
+    ],
+    "booking": "Kontaktujte pracoviště telefonicky / e-mailem",
+    "source": "STL mapa pracovišť"
+  },
+  {
+    "id": "biolife-ostrava",
+    "name": "BioLife Ostrava",
+    "organization": "BioLife Plasma Services",
+    "city": "Ostrava",
+    "address": "Českobratrská 3321/46, Ostrava",
+    "kraj": "Moravskoslezský",
+    "phone": "+420 558 889 560",
+    "email": "ostrava.biolifecz@takeda.com",
+    "web": "https://biolifeplazma.cz/plazmacentra/",
+    "kind": "Plazma centrum",
+    "types": [
+      "Plazma"
+    ],
+    "booking": "Objednání na webu provozovatele / telefonicky",
+    "source": "biolifeplazma.cz"
+  },
+  {
+    "id": "biolife-karvina",
+    "name": "BioLife Karviná",
+    "organization": "BioLife Plasma Services",
+    "city": "Karviná",
+    "address": "Korso Karviná, Nádražní 1939, Karviná",
+    "kraj": "Moravskoslezský",
+    "phone": "+420 558 889 570",
+    "email": "karvina.biolifecz@takeda.com",
+    "web": "https://biolifeplazma.cz/plazmacentra/",
+    "kind": "Plazma centrum",
+    "types": [
+      "Plazma"
+    ],
+    "booking": "Objednání na webu provozovatele / telefonicky",
+    "source": "biolifeplazma.cz"
+  },
+  {
+    "id": "biolife-olomouc",
+    "name": "BioLife Olomouc",
+    "organization": "BioLife Plasma Services",
+    "city": "Olomouc",
+    "address": "Wellnerova 1215/1, Olomouc",
+    "kraj": "Olomoucký",
+    "phone": "+420 587 570 370",
+    "email": "olomouc.biolifecz@takeda.com",
+    "web": "https://biolifeplazma.cz/plazmacentra/",
+    "kind": "Plazma centrum",
+    "types": [
+      "Plazma"
+    ],
+    "booking": "Objednání na webu provozovatele / telefonicky",
+    "source": "biolifeplazma.cz"
+  },
+  {
+    "id": "biolife-brno",
+    "name": "BioLife Brno",
+    "organization": "BioLife Plasma Services",
+    "city": "Brno",
+    "address": "Soukenická 973/2, Brno",
+    "kraj": "Jihomoravský",
+    "phone": "+420 519 799 030",
+    "email": "brno.biolifecz@takeda.com",
+    "web": "https://biolifeplazma.cz/plazmacentra/",
+    "kind": "Plazma centrum",
+    "types": [
+      "Plazma"
+    ],
+    "booking": "Objednání na webu provozovatele / telefonicky",
+    "source": "biolifeplazma.cz"
+  },
+  {
+    "id": "biolife-zlin",
+    "name": "BioLife Zlín",
+    "organization": "BioLife Plasma Services",
+    "city": "Zlín",
+    "address": "Bartošova 5532, Zlín",
+    "kraj": "Zlínský",
+    "phone": "+420 572 662 730",
+    "email": "zlin.biolifecz@takeda.com",
+    "web": "https://biolifeplazma.cz/plazmacentra/",
+    "kind": "Plazma centrum",
+    "types": [
+      "Plazma"
+    ],
+    "booking": "Objednání na webu provozovatele / telefonicky",
+    "source": "biolifeplazma.cz"
+  },
+  {
+    "id": "biolife-pardubice",
+    "name": "BioLife Pardubice",
+    "organization": "BioLife Plasma Services",
+    "city": "Pardubice",
+    "address": "Třída Míru 92, Pardubice",
+    "kraj": "Pardubický",
+    "phone": "+420 467 409 000",
+    "email": "pardubice.biolifecz@takeda.com",
+    "web": "https://biolifeplazma.cz/plazmacentra/",
+    "kind": "Plazma centrum",
+    "types": [
+      "Plazma"
+    ],
+    "booking": "Objednání na webu provozovatele / telefonicky",
+    "source": "biolifeplazma.cz"
+  },
+  {
+    "id": "biolife-hk",
+    "name": "BioLife Hradec Králové",
+    "organization": "BioLife Plasma Services",
+    "city": "Hradec Králové",
+    "address": "U Koruny 414/22, Hradec Králové",
+    "kraj": "Královéhradecký",
+    "phone": "+420 491 679 650",
+    "email": "hradeckralove.biolifecz@takeda.com",
+    "web": "https://biolifeplazma.cz/plazmacentra/",
+    "kind": "Plazma centrum",
+    "types": [
+      "Plazma"
+    ],
+    "booking": "Objednání na webu provozovatele / telefonicky",
+    "source": "biolifeplazma.cz"
+  },
+  {
+    "id": "biolife-liberec",
+    "name": "BioLife Liberec",
+    "organization": "BioLife Plasma Services",
+    "city": "Liberec",
+    "address": "Řeznická 1332/7, Liberec",
+    "kraj": "Liberecký",
+    "phone": "+420 483 570 170",
+    "email": "liberec.biolifecz@takeda.com",
+    "web": "https://biolifeplazma.cz/plazmacentra/",
+    "kind": "Plazma centrum",
+    "types": [
+      "Plazma"
+    ],
+    "booking": "Objednání na webu provozovatele / telefonicky",
+    "source": "biolifeplazma.cz"
+  },
+  {
+    "id": "biolife-usti",
+    "name": "BioLife Ústí nad Labem",
+    "organization": "BioLife Plasma Services",
+    "city": "Ústí nad Labem",
+    "address": "Dlouhá 3458/2A, Ústí nad Labem",
+    "kraj": "Ústecký",
+    "phone": "+420 412 432 590",
+    "email": "usti.biolifecz@takeda.com",
+    "web": "https://biolifeplazma.cz/plazmacentra/",
+    "kind": "Plazma centrum",
+    "types": [
+      "Plazma"
+    ],
+    "booking": "Objednání na webu provozovatele / telefonicky",
+    "source": "biolifeplazma.cz"
+  },
+  {
+    "id": "biolife-most",
+    "name": "BioLife Most",
+    "organization": "BioLife Plasma Services",
+    "city": "Most",
+    "address": "Radniční 3400, Most",
+    "kraj": "Ústecký",
+    "phone": "+420 412 432 500",
+    "email": "most.biolifecz@takeda.com",
+    "web": "https://biolifeplazma.cz/plazmacentra/",
+    "kind": "Plazma centrum",
+    "types": [
+      "Plazma"
+    ],
+    "booking": "Objednání na webu provozovatele / telefonicky",
+    "source": "biolifeplazma.cz"
+  },
+  {
+    "id": "biolife-plzen",
+    "name": "BioLife Plzeň",
+    "organization": "BioLife Plasma Services",
+    "city": "Plzeň",
+    "address": "Poděbradova 2842/1, Plzeň",
+    "kraj": "Plzeňský",
+    "phone": "+420 371 409 220",
+    "email": "plzen.biolifecz@takeda.com",
+    "web": "https://biolifeplazma.cz/plazmacentra/",
+    "kind": "Plazma centrum",
+    "types": [
+      "Plazma"
+    ],
+    "booking": "Objednání na webu provozovatele / telefonicky",
+    "source": "biolifeplazma.cz"
+  },
+  {
+    "id": "biolife-chomutov",
+    "name": "BioLife Chomutov",
+    "organization": "BioLife Plasma Services",
+    "city": "Chomutov",
+    "address": "Žižkovo nám. 5762, Chomutov",
+    "kraj": "Ústecký",
+    "phone": "+420 412 877 190",
+    "email": "chomutov.biolifecz@takeda.com",
+    "web": "https://biolifeplazma.cz/plazmacentra/",
+    "kind": "Plazma centrum",
+    "types": [
+      "Plazma"
+    ],
+    "booking": "Objednání na webu provozovatele / telefonicky",
+    "source": "biolifeplazma.cz"
+  },
+  {
+    "id": "unica-praha",
+    "name": "UNICAplasma Praha — BLOX",
+    "organization": "UNICAplasma",
+    "city": "Praha",
+    "address": "Evropská 11/2758, 160 00 Praha 6",
+    "kraj": "Hlavní město Praha",
+    "phone": "+420 800 720 972",
+    "email": "recepce@kedrion.com",
+    "web": "https://www.unicaplasma.cz/odberova-centra/",
+    "kind": "Plazma centrum",
+    "types": [
+      "Plazma"
+    ],
+    "booking": "Online rezervace na unicaplasma.cz / telefonicky",
+    "source": "unicaplasma.cz"
+  },
+  {
+    "id": "unica-ostrava",
+    "name": "UNICAplasma Ostrava-Dubina",
+    "organization": "UNICAplasma",
+    "city": "Ostrava",
+    "address": "Horní 266/73, 700 30 Ostrava",
+    "kraj": "Moravskoslezský",
+    "phone": "+420 800 720 972",
+    "email": "ostrava@kedrion.com",
+    "web": "https://www.unicaplasma.cz/odberova-centra/ostrava/",
+    "kind": "Plazma centrum",
+    "types": [
+      "Plazma"
+    ],
+    "booking": "Online rezervace na unicaplasma.cz / telefonicky",
+    "source": "unicaplasma.cz"
+  },
+  {
+    "id": "unica-kladno",
+    "name": "UNICAplasma Kladno",
+    "organization": "UNICAplasma",
+    "city": "Kladno",
+    "address": "OC Central, Petra Bezruče 3388, 272 01 Kladno",
+    "kraj": "Středočeský",
+    "phone": "+420 800 720 972",
+    "email": "kladno@unicaplasma.cz",
+    "web": "https://www.unicaplasma.cz/odberova-centra/kladno/",
+    "kind": "Plazma centrum",
+    "types": [
+      "Plazma"
+    ],
+    "booking": "Online rezervace na unicaplasma.cz / telefonicky",
+    "source": "unicaplasma.cz"
+  },
+  {
+    "id": "unica-fm",
+    "name": "UNICAplasma Frýdek-Místek",
+    "organization": "UNICAplasma",
+    "city": "Frýdek-Místek",
+    "address": "Poliklinika Místek, 8. pěšího pluku 85, 738 01 Frýdek-Místek",
+    "kraj": "Moravskoslezský",
+    "phone": "+420 800 720 972",
+    "email": "mistek@unicaplasma.cz",
+    "web": "https://www.unicaplasma.cz/odberova-centra/frydek-mistek/",
+    "kind": "Plazma centrum",
+    "types": [
+      "Plazma"
+    ],
+    "booking": "Online rezervace na unicaplasma.cz / telefonicky",
+    "source": "unicaplasma.cz"
+  },
+  {
+    "id": "unica-tesin",
+    "name": "UNICAplasma Český Těšín",
+    "organization": "UNICAplasma",
+    "city": "Český Těšín",
+    "address": "Bezručova 2137/17, 737 01 Český Těšín",
+    "kraj": "Moravskoslezský",
+    "phone": "+420 800 720 972",
+    "email": "tesin@kedrion.com",
+    "web": "https://www.unicaplasma.cz/odberova-centra/cesky-tesin/",
+    "kind": "Plazma centrum",
+    "types": [
+      "Plazma"
+    ],
+    "booking": "Online rezervace na unicaplasma.cz / telefonicky",
+    "source": "unicaplasma.cz"
+  },
+  {
+    "id": "unica-cb-prach",
+    "name": "UNICAplasma České Budějovice — Prachatická",
+    "organization": "UNICAplasma",
+    "city": "České Budějovice",
+    "address": "Prachatická 1658/2b, 370 05 České Budějovice",
+    "kraj": "Jihočeský",
+    "phone": "+420 800 720 972",
+    "email": "budejovice@unicaplasma.cz",
+    "web": "https://www.unicaplasma.cz/odberova-centra/ceske-budejovice-prachaticka/",
+    "kind": "Plazma centrum",
+    "types": [
+      "Plazma"
+    ],
+    "booking": "Online rezervace na unicaplasma.cz / telefonicky",
+    "source": "unicaplasma.cz"
+  },
+  {
+    "id": "unica-cb-globus",
+    "name": "UNICAplasma České Budějovice — Globus",
+    "organization": "UNICAplasma",
+    "city": "České Budějovice",
+    "address": "České Vrbné 2327, 370 11 České Budějovice",
+    "kraj": "Jihočeský",
+    "phone": "+420 800 720 972",
+    "email": "budejovice.globus@kedrion.com",
+    "web": "https://www.unicaplasma.cz/odberova-centra/ceske-budejovice-globus/",
+    "kind": "Plazma centrum",
+    "types": [
+      "Plazma"
+    ],
+    "booking": "Online rezervace na unicaplasma.cz / telefonicky",
+    "source": "unicaplasma.cz"
+  },
+  {
+    "id": "unica-tabor",
+    "name": "UNICAplasma Tábor",
+    "organization": "UNICAplasma",
+    "city": "Tábor",
+    "address": "nám. F. Křižíka 2881, 390 01 Tábor",
+    "kraj": "Jihočeský",
+    "phone": "+420 800 720 972",
+    "email": "tabor@unicaplasma.cz",
+    "web": "https://www.unicaplasma.cz/odberova-centra/tabor/",
+    "kind": "Plazma centrum",
+    "types": [
+      "Plazma"
+    ],
+    "booking": "Online rezervace na unicaplasma.cz / telefonicky",
+    "source": "unicaplasma.cz"
+  },
+  {
+    "id": "cara-praha1",
+    "name": "Cara Plasma Praha 1",
+    "organization": "Cara Plasma",
+    "city": "Praha",
+    "address": "Jungmannova 745/24, 110 00 Praha 1",
+    "kraj": "Hlavní město Praha",
+    "phone": "+420 227 272 537",
+    "email": "praha@caraplasma.cz",
+    "web": "https://www.caraplasma.cz/darovani-krevni-plazmy-praha",
+    "kind": "Plazma centrum",
+    "types": [
+      "Plazma"
+    ],
+    "booking": "Objednání na webu / v aplikaci Cara Plasma",
+    "source": "caraplasma.cz"
+  },
+  {
+    "id": "cara-praha8",
+    "name": "Cara Plasma Praha 8 — Bohnice",
+    "organization": "Cara Plasma",
+    "city": "Praha",
+    "address": "OC Odra, Lodžská 399/26, 181 00 Praha 8",
+    "kraj": "Hlavní město Praha",
+    "phone": "+420 227 272 533",
+    "email": "praha2@caraplasma.cz",
+    "web": "https://www.caraplasma.cz/",
+    "kind": "Plazma centrum",
+    "types": [
+      "Plazma"
+    ],
+    "booking": "Objednání na webu / v aplikaci Cara Plasma",
+    "source": "caraplasma.cz"
+  },
+  {
+    "id": "cara-brno-stred",
+    "name": "Cara Plasma Brno — střed",
+    "organization": "Cara Plasma",
+    "city": "Brno",
+    "address": "Benešova 627/14, 602 00 Brno",
+    "kraj": "Jihomoravský",
+    "phone": "+420 515 530 000",
+    "email": "brno2@caraplasma.cz",
+    "web": "https://www.caraplasma.cz/darovani-krevni-plazmy-brno-stred",
+    "kind": "Plazma centrum",
+    "types": [
+      "Plazma"
+    ],
+    "booking": "Objednání na webu / v aplikaci Cara Plasma",
+    "source": "caraplasma.cz"
+  },
+  {
+    "id": "cara-brno-olympia",
+    "name": "Cara Plasma Brno — Olympia",
+    "organization": "Cara Plasma",
+    "city": "Modřice",
+    "address": "OC Olympia, U Dálnice 777, 664 42 Modřice",
+    "kraj": "Jihomoravský",
+    "phone": "+420 530 514 622",
+    "email": "brno@caraplasma.cz",
+    "web": "https://www.caraplasma.cz/darovani-krevni-plazmy-brno",
+    "kind": "Plazma centrum",
+    "types": [
+      "Plazma"
+    ],
+    "booking": "Objednání na webu / v aplikaci Cara Plasma",
+    "source": "caraplasma.cz"
+  },
+  {
+    "id": "cara-breclav",
+    "name": "Cara Plasma Břeclav",
+    "organization": "Cara Plasma",
+    "city": "Břeclav",
+    "address": "J. Palacha 2613/36, 690 02 Břeclav",
+    "kraj": "Jihomoravský",
+    "phone": "+420 530 514 633",
+    "email": "breclav@caraplasma.cz",
+    "web": "https://www.caraplasma.cz/",
+    "kind": "Plazma centrum",
+    "types": [
+      "Plazma"
+    ],
+    "booking": "Objednání na webu / v aplikaci Cara Plasma",
+    "source": "caraplasma.cz"
+  },
+  {
+    "id": "cara-cb",
+    "name": "Cara Plasma České Budějovice",
+    "organization": "Cara Plasma",
+    "city": "České Budějovice",
+    "address": "Galerie Mariánská, Pražská třída 1815/1, 370 04 České Budějovice",
+    "kraj": "Jihočeský",
+    "phone": "+420 380 603 333",
+    "email": "budejovice@caraplasma.cz",
+    "web": "https://www.caraplasma.cz/",
+    "kind": "Plazma centrum",
+    "types": [
+      "Plazma"
+    ],
+    "booking": "Objednání na webu / v aplikaci Cara Plasma",
+    "source": "caraplasma.cz"
+  },
+  {
+    "id": "cara-jihlava",
+    "name": "Cara Plasma Jihlava",
+    "organization": "Cara Plasma",
+    "city": "Jihlava",
+    "address": "Masarykovo náměstí 1196/40, 586 01 Jihlava",
+    "kraj": "Vysočina",
+    "phone": "+420 561 208 000",
+    "email": "jihlava@caraplasma.cz",
+    "web": "https://www.caraplasma.cz/",
+    "kind": "Plazma centrum",
+    "types": [
+      "Plazma"
+    ],
+    "booking": "Objednání na webu / v aplikaci Cara Plasma",
+    "source": "caraplasma.cz"
+  },
+  {
+    "id": "cara-kolin",
+    "name": "Cara Plasma Kolín",
+    "organization": "Cara Plasma",
+    "city": "Kolín",
+    "address": "nám. Republiky 43, 280 02 Kolín",
+    "kraj": "Středočeský",
+    "phone": "+420 314 000 450",
+    "email": "kolin@caraplasma.cz",
+    "web": "https://www.caraplasma.cz/",
+    "kind": "Plazma centrum",
+    "types": [
+      "Plazma"
+    ],
+    "booking": "Objednání na webu / v aplikaci Cara Plasma",
+    "source": "caraplasma.cz"
+  },
+  {
+    "id": "cara-mb",
+    "name": "Cara Plasma Mladá Boleslav",
+    "organization": "Cara Plasma",
+    "city": "Mladá Boleslav",
+    "address": "Jana Palacha 1297, 293 01 Mladá Boleslav",
+    "kraj": "Středočeský",
+    "phone": "+420 314 000 451",
+    "email": "boleslav@caraplasma.cz",
+    "web": "https://www.caraplasma.cz/darovani-krevni-plazmy-mlada-boleslav",
+    "kind": "Plazma centrum",
+    "types": [
+      "Plazma"
+    ],
+    "booking": "Objednání na webu / v aplikaci Cara Plasma",
+    "source": "caraplasma.cz"
+  },
+  {
+    "id": "cara-ostrava",
+    "name": "Cara Plasma Ostrava",
+    "organization": "Cara Plasma",
+    "city": "Ostrava",
+    "address": "nám. Václava Vacka 1665/9, 708 00 Ostrava",
+    "kraj": "Moravskoslezský",
+    "phone": "+420 558 274 877",
+    "email": "ostrava@caraplasma.cz",
+    "web": "https://www.caraplasma.cz/darovani-krevni-plazmy-ostrava",
+    "kind": "Plazma centrum",
+    "types": [
+      "Plazma"
+    ],
+    "booking": "Objednání na webu / v aplikaci Cara Plasma",
+    "source": "caraplasma.cz"
+  },
+  {
+    "id": "cara-pelhrimov",
+    "name": "Cara Plasma Pelhřimov",
+    "organization": "Cara Plasma",
+    "city": "Pelhřimov",
+    "address": "Příkopy 1889, 393 01 Pelhřimov",
+    "kraj": "Vysočina",
+    "phone": "+420 561 208 008",
+    "email": "pelhrimov@caraplasma.cz",
+    "web": "https://www.caraplasma.cz/",
+    "kind": "Plazma centrum",
+    "types": [
+      "Plazma"
+    ],
+    "booking": "Objednání na webu / v aplikaci Cara Plasma",
+    "source": "caraplasma.cz"
+  },
+  {
+    "id": "cara-strakonice",
+    "name": "Cara Plasma Strakonice",
+    "organization": "Cara Plasma",
+    "city": "Strakonice",
+    "address": "Velké nám. 55, 386 01 Strakonice",
+    "kraj": "Jihočeský",
+    "phone": "+420 380 603 000",
+    "email": "strakonice@caraplasma.cz",
+    "web": "https://www.caraplasma.cz/",
+    "kind": "Plazma centrum",
+    "types": [
+      "Plazma"
+    ],
+    "booking": "Objednání na webu / v aplikaci Cara Plasma",
+    "source": "caraplasma.cz"
+  },
+  {
+    "id": "cara-ub",
+    "name": "Cara Plasma Uherský Brod",
+    "organization": "Cara Plasma",
+    "city": "Uherský Brod",
+    "address": "Masarykovo náměstí 2820, 688 01 Uherský Brod",
+    "kraj": "Zlínský",
+    "phone": "+420 576 117 725",
+    "email": "brod@caraplasma.cz",
+    "web": "https://www.caraplasma.cz/",
+    "kind": "Plazma centrum",
+    "types": [
+      "Plazma"
+    ],
+    "booking": "Objednání na webu / v aplikaci Cara Plasma",
+    "source": "caraplasma.cz"
+  },
+  {
+    "id": "cara-zlin",
+    "name": "Cara Plasma Zlín",
+    "organization": "Cara Plasma",
+    "city": "Zlín",
+    "address": "Panorama Zlín, Okružní 4701, 760 05 Zlín",
+    "kraj": "Zlínský",
+    "phone": "+420 576 117 722",
+    "email": "zlin@caraplasma.cz",
+    "web": "https://www.caraplasma.cz/",
+    "kind": "Plazma centrum",
+    "types": [
+      "Plazma"
+    ],
+    "booking": "Objednání na webu / v aplikaci Cara Plasma",
+    "source": "caraplasma.cz"
+  }
+]

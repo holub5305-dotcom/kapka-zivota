@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Kapka života">
+  <circle cx="256" cy="256" r="240" fill="#C62828"/>
+  <path fill="#FFFFFF" d="M256 72c0 0-96 128-96 208a96 96 0 0 0 192 0c0-80-96-208-96-208z"/>
+  <circle cx="220" cy="260" r="22" fill="#C62828" opacity="0.35"/>
+</svg>
