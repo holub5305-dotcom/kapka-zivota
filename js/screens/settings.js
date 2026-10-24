@@ -18,6 +18,13 @@
           <p class="muted">Volba se uloží jen ve Vašem prohlížeči. Systémový režim respektuje preferenci zařízení.</p>
         </div>
 
+        <div class="card stack gap-sm" id="install-card">
+          <h2 class="card-title">Instalace</h2>
+          <p>Kapku života můžete mít jako aplikaci na ploše. Data zůstávají ve Vašem prohlížeči.</p>
+          <button type="button" class="btn btn-primary" id="settings-install">Jak nainstalovat</button>
+          <p class="muted" id="install-standalone-note" hidden>Aplikace už běží v režimu instalace (samostatné okno).</p>
+        </div>
+
         <div class="card stack gap-sm">
           <h2 class="card-title">Data a soukromí</h2>
           <p>Všechny Vaše záznamy (deník, připomínky) zůstávají v tomto zařízení (localStorage). Aplikace neodesílá data na server a nevyžaduje registraci.</p>
@@ -58,5 +65,15 @@
       KapkaStore.setWelcomeDone(false);
       KapkaRouter.navigate('/welcome');
     };
+    const installBtn = outlet.querySelector('#settings-install');
+    const note = outlet.querySelector('#install-standalone-note');
+    if (window.KapkaApp && KapkaApp.isStandalone && KapkaApp.isStandalone()) {
+      if (installBtn) installBtn.hidden = true;
+      if (note) note.hidden = false;
+    } else if (installBtn) {
+      installBtn.onclick = () => {
+        if (window.KapkaApp && KapkaApp.openInstallDialog) KapkaApp.openInstallDialog();
+      };
+    }
   });
 })();

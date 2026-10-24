@@ -689,3 +689,53 @@ html[data-theme="dark"] .badge-plasma,
     font-size: 0.75rem;
   }
 }
+
+/* Install help dialog */
+.install-dialog-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 60;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 1rem;
+}
+@media (min-width: 640px) {
+  .install-dialog-backdrop {
+    align-items: center;
+  }
+}
+.install-dialog {
+  width: min(440px, 100%);
+  max-height: min(90vh, 640px);
+  overflow: auto;
+  background: var(--card, #fff);
+  color: var(--text, #1a1a1a);
+  border-radius: 16px;
+  padding: 1.1rem 1.15rem 1.25rem;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+.install-dialog h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+}
+.install-dialog ol {
+  margin: 0.35rem 0 0.85rem;
+  padding-left: 1.2rem;
+}
+.install-dialog li {
+  margin: 0.35rem 0;
+  line-height: 1.4;
+}
+.install-dialog .dialog-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+.install-dialog[hidden],
+.install-dialog-backdrop[hidden] {
+  display: none !important;
+}
