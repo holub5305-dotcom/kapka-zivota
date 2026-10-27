@@ -1,5 +1,5 @@
 /* Kapka života — service worker */
-const CACHE = 'kapka-zivota-shell-v3';
+const CACHE = 'kapka-zivota-shell-v4';
 const PRECACHE = [
   './',
   './index.html',
@@ -19,6 +19,7 @@ const PRECACHE = [
   './data/stations.json',
   './icons/icon-192.png',
   './icons/icon-512.png',
+  './icons/icon-512-maskable.png',
   './icons/icon.svg'
 ];
 

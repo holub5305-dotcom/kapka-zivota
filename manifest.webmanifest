@@ -1,15 +1,16 @@
 {
   "id": "/kapka-zivota/",
   "name": "Kapka života",
-  "short_name": "Kapka",
-  "description": "Dárcovský deník, připomínky a přehled transfuzních pracovišť v ČR. Data zůstávají ve Vašem zařízení.",
+  "short_name": "Kapka života",
+  "description": "Dárcovský deník, připomínky a přehled transfuzních pracovišť v ČR. Data zůstávají ve Vašem zařízení. Zdarma, bez reklam a bez registrace.",
   "lang": "cs",
   "dir": "ltr",
-  "start_url": "/kapka-zivota/",
+  "start_url": "/kapka-zivota/?source=pwa",
   "scope": "/kapka-zivota/",
   "display": "standalone",
+  "display_override": ["standalone", "minimal-ui", "browser"],
   "orientation": "any",
-  "background_color": "#FFFFFF",
+  "background_color": "#C62828",
   "theme_color": "#C62828",
   "categories": ["health", "medical", "lifestyle"],
   "icons": [
@@ -26,7 +27,7 @@
       "purpose": "any"
     },
     {
-      "src": "icons/icon-512.png",
+      "src": "icons/icon-512-maskable.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
