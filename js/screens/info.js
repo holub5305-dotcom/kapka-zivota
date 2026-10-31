@@ -100,11 +100,11 @@
 
         <div class="card stack gap-sm">
           <h2 class="card-title">Instalace na plochu</h2>
-          <p><strong>Android (Chrome):</strong> klepněte na „Nainstalovat zdarma“ a potvrďte, nebo v menu ⋮ zvolte „Nainstalovat aplikaci“.</p>
+          <p><strong>Android (Chrome):</strong> klepněte na „Nainstalovat aplikaci“ (tlačítko v Kapce života nebo v menu ⋮ prohlížeče) a potvrďte.</p>
           <p><strong>iPhone a iPad (Safari):</strong> klepněte na Sdílet (čtvereček se šipkou) → „Přidat na plochu“ → „Přidat“.</p>
           <p class="muted">Aplikace se nestahuje z obchodu – instaluje se přímo z oficiální adresy a aktualizuje se sama.</p>
           <p class="ok-note" data-install-status hidden>Aplikace je nainstalovaná.</p>
-          <button type="button" class="btn btn-primary" data-install-btn>Nainstalovat zdarma</button>
+          <button type="button" class="btn btn-primary" data-install-btn>Nainstalovat aplikaci</button>
         </div>
 
         <div class="card stack gap-sm">

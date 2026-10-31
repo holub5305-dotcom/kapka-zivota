@@ -72,16 +72,32 @@
     return /iPhone|iPad|iPod/i.test(ua) || (/Macintosh/i.test(ua) && (navigator.maxTouchPoints || 0) > 1);
   }
 
-  // v1.2.4: stručná nápověda k omezení baterie (Android – Xiaomi, Vivo). Na iPhonu se nezobrazuje.
+  // v1.2.6: obecné návody k omezení baterie podle značky telefonu (Android). Na iPhonu/iPadu se nezobrazuje.
   function batteryHelpHtml() {
     return `
         <details class="rem-battery">
-          <summary>Upozornění chodí pozdě? Nastavení baterie (Xiaomi, Vivo)</summary>
-          <p>Telefon může prohlížeči na pozadí omezovat běh. Nastavte to u prohlížeče, ve kterém aplikaci používáte (např. Brave nebo Chrome). Názvy položek se mohou lišit podle verze systému.</p>
-          <p><strong>Xiaomi / Redmi / POCO (HyperOS, MIUI):</strong> Nastavení → Aplikace → Správa aplikací → [prohlížeč] → Spořič baterie → Bez omezení <span class="muted">(Settings → Apps → Manage apps → Battery saver → No restrictions)</span>. Zapněte také Automatické spuštění <span class="muted">(Autostart)</span>.</p>
-          <p><strong>Vivo (Funtouch OS, OriginOS):</strong> Nastavení → Baterie → Spotřeba energie na pozadí → u prohlížeče povolit vysokou spotřebu na pozadí <span class="muted">(Settings → Battery → Background power consumption management → High background power usage)</span>.</p>
-          <p><strong>Ostatní Android:</strong> Nastavení → Aplikace → [prohlížeč] → Baterie → Bez omezení <span class="muted">(Unrestricted)</span>.</p>
-          <p class="muted">Návody pro další značky: <a href="https://dontkillmyapp.com/" target="_blank" rel="noopener noreferrer">dontkillmyapp.com</a> (anglicky)</p>
+          <summary>Upozornění chodí pozdě? Jak nastavit svůj telefon</summary>
+          <div class="rem-battery-body">
+            <p>Telefon může prohlížeči na pozadí omezovat běh, a upozornění pak přijde pozdě. Nastavení proveďte u prohlížeče, ve kterém Kapku života používáte (např. Chrome, Brave, Samsung Internet). Názvy položek se mohou lišit podle značky a verze systému.</p>
+            <p class="rem-battery-note">I po úpravě nastavení baterie nemůže webová aplikace zaručit přesné doručení připomínky. Spolehlivé připomenutí zajistí tlačítko „Uložit do kalendáře“ (a k důležitým termínům budík).</p>
+            <details class="rem-brand" data-brand="xiaomi">
+              <summary>Xiaomi / Redmi / POCO</summary>
+              <p><span class="muted">HyperOS, MIUI</span></p>
+              <p>Nastavení → Aplikace → Správa aplikací → [prohlížeč] → Spořič baterie → Bez omezení <span class="muted">(Settings → Apps → Manage apps → Battery saver → No restrictions)</span>.</p>
+              <p>Ve stejném místě zapněte Automatické spuštění <span class="muted">(Autostart)</span>.</p>
+            </details>
+            <details class="rem-brand" data-brand="vivo">
+              <summary>Vivo</summary>
+              <p><span class="muted">Funtouch OS, OriginOS</span></p>
+              <p>Nastavení → Baterie → Spotřeba energie na pozadí → u prohlížeče povolit vysokou spotřebu na pozadí <span class="muted">(Settings → Battery → Background power consumption management → High background power usage)</span>.</p>
+            </details>
+            <details class="rem-brand" data-brand="android">
+              <summary>Ostatní Android</summary>
+              <p>Nastavení → Aplikace → [prohlížeč] → Baterie → Bez omezení / Neomezeno <span class="muted">(Settings → Apps → [browser] → Battery → Unrestricted)</span>.</p>
+              <p><strong>Samsung (One UI):</strong> navíc Nastavení → Baterie → Omezení využití na pozadí <span class="muted">(Background usage limits)</span> – prohlížeč nesmí být mezi uspanými aplikacemi <span class="muted">(Sleeping apps, Deep sleeping apps)</span>; přidejte ho mezi aplikace, které se nikdy neuspí <span class="muted">(Never sleeping apps)</span>.</p>
+            </details>
+            <p class="muted">Návody pro další značky: <a href="https://dontkillmyapp.com/" target="_blank" rel="noopener noreferrer">dontkillmyapp.com</a> (anglicky)</p>
+          </div>
         </details>`;
   }
 

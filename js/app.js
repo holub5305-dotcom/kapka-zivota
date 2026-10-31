@@ -265,7 +265,7 @@
     }
   }
 
-  /** Hlavní akce tlačítka „Nainstalovat zdarma“. */
+  /** Hlavní akce tlačítka „Nainstalovat aplikaci“. */
   async function startInstall() {
     if (isStandalone() || installedThisSession) {
       if (window.KapkaShare) KapkaShare.toast('Kapka života je už nainstalovaná.');
@@ -287,10 +287,13 @@
     const st = installState();
     const installed = st === 'standalone' || st === 'installed';
     const btn = document.getElementById('install-btn');
+    // v1.2.6: výzvu k instalaci ukazujeme na obrazovce nejvýš jednou – pokud ji má obsah
+    // (Domů, Více, Jak Kapka života funguje), tlačítko v horní liště se skryje.
+    const inContent = !!document.querySelector('#app [data-install-btn]');
     if (btn) {
-      btn.hidden = installed;
+      btn.hidden = installed || inContent;
       btn.disabled = false;
-      btn.textContent = st === 'prompt' ? 'Nainstalovat zdarma' : 'Jak nainstalovat';
+      btn.textContent = st === 'prompt' ? 'Nainstalovat aplikaci' : 'Jak nainstalovat';
     }
     const plat = detectPlatform();
     document.querySelectorAll('[data-install-panel]').forEach((el) => {

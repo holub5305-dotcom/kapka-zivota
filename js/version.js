@@ -5,7 +5,7 @@
  * Autor projektu: Vladimír Holub. © 2026 Vladimír Holub. Všechna práva vyhrazena.
  */
 (function (global) {
-  const APP_VERSION = '1.2.5';
+  const APP_VERSION = '1.2.6';
   const PUBLIC_URL = 'https://holub5305-dotcom.github.io/kapka-zivota/';
   global.KapkaVersion = { APP_VERSION, PUBLIC_URL };
   if (typeof module !== 'undefined' && module.exports) module.exports = global.KapkaVersion;

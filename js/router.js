@@ -66,15 +66,28 @@
       navigate('/home');
       return;
     }
-    const m = match(path) || match('/home');
+    const matched = match(path);
+    const m = matched || match('/home');
     current = path;
     outlet.innerHTML = '';
     outlet.setAttribute('data-route', path);
     const ctx = { path, params: Object.assign({}, (m && m.params) || {}, q), outlet };
     await m.fn(ctx);
+    if (current === path) addBackHome(outlet, matched ? path : '/home');
     updateNav(path);
     if (window.KapkaApp && typeof window.KapkaApp.refreshInstallUI === 'function') window.KapkaApp.refreshInstallUI();
     outlet.focus({ preventScroll: true });
+  }
+
+  /** v1.2.6: „← Zpět na hlavní stránku“ nad obsahem každé sekce kromě Domů.
+   * Viditelné jen na širokých obrazovkách (CSS); na mobilu zůstává spodní navigace. */
+  function addBackHome(el, path) {
+    if (path === '/' || path === '/home' || path === '/welcome') return;
+    if (el.querySelector('[data-back-home]')) return;
+    const bar = document.createElement('div');
+    bar.className = 'back-home-bar';
+    bar.innerHTML = '<a href="#/home" class="btn btn-ghost back-home" data-back-home><span aria-hidden="true">←</span> Zpět na hlavní stránku</a>';
+    el.insertBefore(bar, el.firstChild);
   }
 
   function updateNav(path) {

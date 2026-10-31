@@ -12,7 +12,7 @@
           <h2 class="card-title">Instalace a sdílení</h2>
           <p data-install-hint>Ukážeme Vám, jak Kapku života přidat na plochu.</p>
           <p class="ok-note" data-install-status hidden>Aplikace je nainstalovaná.</p>
-          <button type="button" class="btn btn-primary" id="settings-install" data-install-btn>Nainstalovat zdarma</button>
+          <button type="button" class="btn btn-primary" id="settings-install" data-install-btn>Nainstalovat aplikaci</button>
           <button type="button" class="btn btn-secondary" data-share-app>Sdílet Kapku života</button>
           <button type="button" class="btn btn-ghost" data-copy-link>Zkopírovat odkaz</button>
           <button type="button" class="btn btn-ghost" data-go="settings/share">QR kód a leták</button>

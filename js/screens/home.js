@@ -383,7 +383,7 @@
             </div>
           </div>
           <div class="h-install-btns">
-            <button type="button" class="btn btn-primary h-install-btn" data-install-btn>Nainstalovat zdarma</button>
+            <button type="button" class="btn btn-primary h-install-btn" data-install-btn>Nainstalovat aplikaci</button>
             <button type="button" class="btn btn-secondary h-install-share" data-share-app aria-label="Sdílet Kapku života">${icon('share')}<span>Sdílet</span></button>
           </div>
           <button type="button" class="linkish h-install-guide" data-install-guide>Návod krok za krokem</button>

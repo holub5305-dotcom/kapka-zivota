@@ -316,7 +316,7 @@
           steps: [
             { ico: 'dots', html: 'Klepněte na <b>⋮</b> nebo <b>⋯</b> vpravo nahoře.' },
             { ico: 'open', html: 'Zvolte ' + L('Otevřít v prohlížeči', 'Open in browser') + ' nebo ' + L('Otevřít v Chrome', 'Open in Chrome') + '.' },
-            { ico: 'install', html: 'V prohlížeči klepněte na ' + L('Nainstalovat zdarma', '') + '.' }
+            { ico: 'install', html: 'V prohlížeči klepněte na ' + L('Nainstalovat aplikaci', '') + '.' }
           ],
           notes: [{ ico: 'info', html: 'Nebo použijte tlačítka níže.' }],
           actions: ['chrome', 'copy']

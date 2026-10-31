@@ -19,21 +19,55 @@
     return list;
   }
 
+  /* v1.2.6: úvodní stav prázdného deníku (žádný záznam) */
+  const SVG = {
+    book: '<path d="M5 4.5A2.5 2.5 0 0 1 7.5 2H19v17H7.5A2.5 2.5 0 0 0 5 21.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M5 21.5V4.5M9 7h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
+    lock: '<rect x="5" y="10" width="14" height="11" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3" fill="none" stroke="currentColor" stroke-width="2"/>',
+    chart: '<path d="M4 20h16M7 16v-5M12 16V7M17 16v-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>',
+    drop: '<path d="M12 2.5c-3.6 4.6-6.5 8.3-6.5 11.8a6.5 6.5 0 0 0 13 0C18.5 10.8 15.6 7.1 12 2.5z" fill="currentColor"/>'
+  };
+  function svg(name, cls) {
+    return `<svg class="${cls || ''}" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false">${SVG[name]}</svg>`;
+  }
+
+  function emptyStateHtml() {
+    return `
+      <div class="diary-empty" role="region" aria-labelledby="diary-empty-title">
+        <div class="de-intro">
+          <span class="de-ico">${svg('drop')}</span>
+          <div>
+            <h2 id="diary-empty-title" class="de-title">Začněte svůj dárcovský deník</h2>
+            <p class="de-lead">Zapisujte si odběry krve a plazmy na jednom místě. Uvidíte přehled své historie, počty odběrů a orientační termín dalšího odběru.</p>
+            <div class="de-actions">
+              <button type="button" class="btn btn-primary btn-lg" data-add>Přidat první odběr</button>
+            </div>
+          </div>
+        </div>
+        <ul class="de-points">
+          <li><span class="de-pico">${svg('book')}</span><span><strong>Co se zapisuje</strong>Typ odběru (krev nebo plazma), datum, místo a volitelná poznámka.</span></li>
+          <li><span class="de-pico">${svg('lock')}</span><span><strong>Jen ve Vašem zařízení</strong>Záznamy se nikam neodesílají. Zálohu si můžete uložit v části Více.</span></li>
+          <li><span class="de-pico">${svg('chart')}</span><span><strong>Přehled na Domů</strong>Počty odběrů a orientační termín dalšího odběru. O odběru vždy rozhoduje lékař centra.</span></li>
+        </ul>
+      </div>`;
+  }
+
   KapkaRouter.register('/diary', async function ({ outlet, params }) {
     const filter = params.filter || 'Vše';
     const list = filterList(filter);
     const stats = KapkaStore.donationStats();
+    const noRecords = stats.total === 0;
 
     outlet.innerHTML = `
-      <section class="screen" aria-labelledby="diary-title">
+      <section class="screen${noRecords ? ' diary-is-empty' : ''}" aria-labelledby="diary-title">
         <header class="screen-header row-between">
           <div>
             <h1 id="diary-title">Dárcovský deník</h1>
-            <p class="sub">${stats.total} záznamů · ${stats.blood} krev · ${stats.plasma} plazma</p>
+            <p class="sub">${noRecords ? 'Váš osobní přehled odběrů krve a plazmy' : `${stats.total} záznamů · ${stats.blood} krev · ${stats.plasma} plazma`}</p>
           </div>
-          <button type="button" class="btn btn-primary" data-add>Přidat</button>
+          ${noRecords ? '' : '<button type="button" class="btn btn-primary" data-add>Přidat</button>'}
         </header>
 
+        ${noRecords ? emptyStateHtml() : `
         <div class="seg" role="tablist" aria-label="Filtr typu odběru">
           ${['Vše', 'Krev', 'Plazma']
             .map(
@@ -63,9 +97,9 @@
             </article>`
                   )
                   .join('')
-              : `<div class="empty"><p>Žádné odběry v tomto filtru.</p><button type="button" class="btn btn-primary" data-add>Přidat první odběr</button></div>`
+              : `<div class="empty"><p>Žádné odběry v tomto filtru.</p><button type="button" class="btn btn-primary" data-add>Přidat odběr</button></div>`
           }
-        </div>
+        </div>`}
       </section>
 
       <div class="modal" id="del-modal" hidden>
