@@ -11,6 +11,7 @@
     heart: '<path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.3a4.3 4.3 0 0 1 7.5 2.5C19.5 15.4 12 20 12 20Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>',
     info: '<circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 11v5.5M12 7.6v.3" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>',
     prep: '<rect x="5" y="4" width="14" height="17" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9 4.2V3.5A1.5 1.5 0 0 1 10.5 2h3A1.5 1.5 0 0 1 15 3.5v.7" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="m8.7 12.6 2.2 2.2 4.4-4.6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>',
+    share: '<path d="M12 3v12M8 7l4-4 4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 11H5v10h14V11h-2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>',
     chevron: '<path d="m9 6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>'
   };
 
@@ -360,6 +361,7 @@
         </article>`
       : '';
 
+    const installHidden = !!(window.KapkaApp && KapkaApp.isStandalone && KapkaApp.isStandalone());
     outlet.innerHTML = `
       <section class="screen home" aria-labelledby="home-title">
         <header class="h-hero">
@@ -371,19 +373,20 @@
           <span class="h-hero-drop" aria-hidden="true">${icon('drop')}</span>
         </header>
 
-        <div class="h-install" role="region" aria-label="Instalace a sdílení">
+        <div class="h-install" role="region" aria-label="Instalace" data-install-panel ${installHidden ? 'hidden' : ''}>
           <div class="h-install-main">
             <span class="h-install-ico" aria-hidden="true">${icon('drop')}</span>
             <div class="h-install-text">
-              <p class="h-install-t">Kapka života zdarma na Vaší ploše</p>
-              <p class="h-install-s" data-install-hint>Ukážeme Vám, jak Kapku života přidat na plochu.</p>
+              <p class="h-install-t">Kapka života na Vaší ploše</p>
+              <p class="h-install-s" data-install-hint>Ukážeme Vám, jak ji přidat na plochu.</p>
               <p class="h-install-s is-ok" data-install-status hidden>Aplikace je nainstalovaná.</p>
             </div>
           </div>
           <div class="h-install-btns">
             <button type="button" class="btn btn-primary h-install-btn" data-install-btn>Nainstalovat zdarma</button>
-            <button type="button" class="btn btn-secondary" data-share-app>Sdílet Kapku života</button>
+            <button type="button" class="btn btn-secondary h-install-share" data-share-app aria-label="Sdílet Kapku života">${icon('share')}<span>Sdílet</span></button>
           </div>
+          <button type="button" class="linkish h-install-guide" data-install-guide>Návod krok za krokem</button>
         </div>
 
         ${actionsHtml}

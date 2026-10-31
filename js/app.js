@@ -103,123 +103,33 @@
   let browserKindCache = null;
 
   /** Rozpoznání platformy jen pro výběr návodu (nic se neukládá ani neodesílá). */
+  function detectInfo() {
+    let isBrave = false;
+    try {
+      isBrave = !!(navigator.brave && typeof navigator.brave.isBrave === 'function');
+    } catch (e) {}
+    return KapkaInstall.detect(navigator.userAgent || '', { maxTouchPoints: navigator.maxTouchPoints || 0, isBrave });
+  }
+
   function detectPlatform() {
-    const ua = navigator.userAgent || '';
-    const isIOS = /iPhone|iPad|iPod/i.test(ua) || (/Macintosh/i.test(ua) && navigator.maxTouchPoints > 1);
-    if (isIOS) {
-      let browser = 'safari';
-      if (/CriOS/i.test(ua)) browser = 'chrome';
-      else if (/FxiOS/i.test(ua)) browser = 'firefox';
-      else if (/EdgiOS/i.test(ua)) browser = 'edge';
-      else if (/FBAN|FBAV|Instagram|GSA\/|Line\/|Messenger|WhatsApp/i.test(ua) || !/Safari\//i.test(ua)) browser = 'other';
-      return { os: 'ios', browser };
-    }
-    if (/Android/i.test(ua)) {
-      let browser = 'chrome';
-      if (/SamsungBrowser/i.test(ua)) browser = 'samsung';
-      else if (/Firefox\//i.test(ua)) browser = 'firefox';
-      else if (/EdgA\//i.test(ua)) browser = 'edge';
-      else if (/OPR\//i.test(ua)) browser = 'other';
-      return { os: 'android', browser };
-    }
-    let browser = 'other';
-    if (/Edg\//i.test(ua)) browser = 'edge';
-    else if (/Firefox\//i.test(ua)) browser = 'firefox';
-    else if (/Safari\//i.test(ua) && !/Chrome\//i.test(ua)) browser = 'safari';
-    else if (/Chrome\//i.test(ua)) browser = 'chrome';
-    return { os: 'desktop', browser };
+    const d = detectInfo();
+    return { os: d.os, browser: d.browser, inApp: d.inApp, kind: d.kind };
   }
 
   async function resolveBrowserKind() {
     if (browserKindCache) return browserKindCache;
-    const p = detectPlatform();
+    const d = detectInfo();
     try {
-      if (navigator.brave && typeof navigator.brave.isBrave === 'function') {
-        if (await navigator.brave.isBrave()) p.browser = 'brave';
+      if (d.browser === 'brave' && !(await navigator.brave.isBrave())) {
+        d.browser = 'chrome';
+        d.kind = d.os + '-chrome';
       }
     } catch (e) {}
-    browserKindCache = p.os + '-' + p.browser;
+    browserKindCache = d.kind;
     return browserKindCache;
   }
 
-  const GUIDES = {
-    'ios-safari': `<p><strong>iPhone / iPad – Safari</strong></p>
-      <ol>
-        <li>Klepněte na tlačítko <strong>Sdílet</strong> (čtvereček se šipkou nahoru) na liště Safari.</li>
-        <li>V nabídce sjeďte níž a zvolte <strong>Přidat na plochu</strong>.</li>
-        <li>Pokud se zobrazí volba <em>Otevřít jako webovou aplikaci</em>, nechte ji zapnutou.</li>
-        <li>Klepněte na <strong>Přidat</strong>. Ikona Kapka života bude na ploše.</li>
-      </ol>
-      <p class="muted">Na iPhonu a iPadu má aplikace přidaná na plochu vlastní úložiště. Záznamy z prohlížeče do ní přenesete přes Více → Export a obnova.</p>`,
-    'ios-other': `<p><strong>iPhone / iPad – jiný prohlížeč než Safari</strong></p>
-      <ol>
-        <li>Nejspolehlivější je otevřít Kapku života v <strong>Safari</strong>: <button type="button" class="linkish" data-copy-link>zkopírujte odkaz</button>, otevřete Safari a vložte ho do adresního řádku.</li>
-        <li>V Safari klepněte na <strong>Sdílet</strong> → <strong>Přidat na plochu</strong> → <strong>Přidat</strong>.</li>
-      </ol>
-      <p class="muted">V novějších verzích iOS (od 16.4) nabízejí některé prohlížeče, např. Chrome nebo Edge, položku <em>Přidat na plochu</em> také ve své nabídce Sdílet. Pokud ji vidíte, můžete ji použít.</p>`,
-    'android-chrome': `<p><strong>Android – Chrome</strong></p>
-      <ol>
-        <li>Klepněte na menu <strong>⋮</strong> vpravo nahoře.</li>
-        <li>Zvolte <strong>Nainstalovat aplikaci</strong> nebo <strong>Přidat na plochu</strong>.</li>
-        <li>Potvrďte. Ikona Kapka života se objeví na ploše a otevře se bez adresního řádku.</li>
-      </ol>`,
-    'android-brave': `<p><strong>Android – Brave</strong></p>
-      <ol>
-        <li>Klepněte na menu <strong>⋮</strong>.</li>
-        <li>Zvolte <strong>Nainstalovat aplikaci</strong> nebo <strong>Přidat na domovskou obrazovku</strong>.</li>
-        <li>Potvrďte přidání.</li>
-      </ol>`,
-    'android-samsung': `<p><strong>Android – Samsung Internet</strong></p>
-      <ol>
-        <li>Klepněte na menu <strong>≡</strong> (obvykle dole).</li>
-        <li>Zvolte <strong>Přidat stránku do</strong> → <strong>Domovská obrazovka</strong> (název položky se může podle verze lišit).</li>
-        <li>Potvrďte přidání.</li>
-      </ol>`,
-    'android-firefox': `<p><strong>Android – Firefox</strong></p>
-      <ol>
-        <li>Klepněte na menu <strong>⋮</strong>.</li>
-        <li>Zvolte <strong>Přidat na plochu</strong> nebo <strong>Instalovat</strong> (podle verze).</li>
-        <li>Potvrďte přidání. Pro nejlepší výsledek doporučujeme Chrome.</li>
-      </ol>`,
-    'android-edge': `<p><strong>Android – Microsoft Edge</strong></p>
-      <ol>
-        <li>Klepněte na menu <strong>…</strong> dole.</li>
-        <li>Zvolte <strong>Přidat do telefonu</strong> / <strong>Nainstalovat aplikaci</strong>.</li>
-      </ol>`,
-    'desktop-brave': `<p><strong>Brave (počítač)</strong></p>
-      <ol>
-        <li>V adresním řádku klikněte na ikonu instalace (monitor se šipkou), pokud ji Brave ukazuje.</li>
-        <li>Nebo menu Brave (☰) → <em>Uložit a sdílet</em> / <em>Další nástroje</em> → <em>Nainstalovat Kapka života…</em> nebo <em>Vytvořit zkratku…</em> se zaškrtnutým <em>Otevřít jako okno</em>.</li>
-      </ol>`,
-    'desktop-chrome': `<p><strong>Google Chrome (počítač)</strong></p>
-      <ol>
-        <li>V adresním řádku klikněte na ikonu instalace.</li>
-        <li>Nebo menu ⋮ → <em>Uložit a sdílet</em> / <em>Nainstalovat Kapka života…</em>.</li>
-      </ol>`,
-    'desktop-edge': `<p><strong>Microsoft Edge</strong></p>
-      <ol>
-        <li>Ikona aplikace v adresním řádku, nebo ⋯ → <em>Aplikace</em> → <em>Nainstalovat tento web jako aplikaci</em>.</li>
-      </ol>`,
-    'desktop-firefox': `<p><strong>Firefox (počítač)</strong> obvykle neinstaluje webové aplikace. Použijte Chrome, Edge nebo Brave, nebo si stránku uložte do záložek.</p>`,
-    'desktop-safari': `<p><strong>Safari na Macu</strong>: Soubor → <em>Přidat do Docku</em> (macOS Sonoma a novější), nebo použijte Chrome/Edge.</p>`,
-    other: `<p>Váš prohlížeč nemusí podporovat přímou instalaci. Na telefonu hledejte v menu prohlížeče položku <em>Přidat na plochu</em>. Nejspolehlivější jsou Chrome (Android) a Safari (iPhone).</p>`
-  };
-
-  function installGuideHtml(kind) {
-    let key = GUIDES[kind] ? kind : null;
-    if (!key) {
-      if (kind.startsWith('ios-')) key = 'ios-other';
-      else if (kind.startsWith('android-')) key = 'android-chrome';
-      else key = 'other';
-    }
-    const extrasKeys = ['android-chrome', 'ios-safari', 'android-samsung', 'desktop-chrome', 'desktop-brave'].filter((k) => k !== key);
-    return (
-      `<div data-guide="${key}">${GUIDES[key]}</div>` +
-      '<details class="install-more"><summary>Návod pro jiná zařízení</summary>' +
-      extrasKeys.map((k) => GUIDES[k]).join('') +
-      '</details>'
-    );
-  }
+  let guideKindOverride = null;
 
   function ensureInstallDialog() {
     let backdrop = document.getElementById('install-dialog-backdrop');
@@ -230,12 +140,15 @@
     backdrop.hidden = true;
     backdrop.innerHTML = `
       <div class="install-dialog" role="dialog" aria-modal="true" aria-labelledby="install-dialog-title" id="install-dialog">
-        <h2 id="install-dialog-title">Jak nainstalovat Kapku života</h2>
-        <p class="muted">Instalace je zdarma, bez registrace a bez obchodu s aplikacemi.</p>
+        <div class="inst-head">
+          <h2 id="install-dialog-title">Jak nainstalovat Kapku života</h2>
+          <button type="button" class="inst-x" id="install-dialog-x" aria-label="Zavřít návod">×</button>
+        </div>
+        <p class="inst-free">Zdarma · bez registrace · bez obchodu s aplikacemi</p>
+        <button type="button" class="btn btn-primary inst-native" id="install-dialog-native" hidden>Nainstalovat jedním klepnutím</button>
         <div id="install-dialog-body"></div>
-        <p class="muted" id="install-dialog-note">Vaše deníková data zůstávají v tomto zařízení. Instalace data nemaže.</p>
+        <p class="muted" id="install-dialog-note">Vaše záznamy zůstávají v tomto zařízení. Instalace data nemaže.</p>
         <div class="dialog-actions">
-          <button type="button" class="btn btn-primary" id="install-dialog-native" hidden>Nainstalovat teď</button>
           <button type="button" class="btn btn-secondary" id="install-dialog-close">Zavřít</button>
         </div>
       </div>`;
@@ -247,6 +160,34 @@
       if (e.key === 'Escape') closeInstallDialog();
     });
     backdrop.querySelector('#install-dialog-close').onclick = () => closeInstallDialog();
+    backdrop.querySelector('#install-dialog-x').onclick = () => closeInstallDialog();
+    backdrop.querySelector('#install-dialog-body').addEventListener('click', (e) => {
+      const t = e.target && e.target.closest ? e.target : null;
+      if (!t) return;
+      const sw = t.closest('[data-inst-switch]');
+      if (sw) {
+        const box = backdrop.querySelector('#inst-switch');
+        if (box) {
+          box.hidden = !box.hidden;
+          sw.setAttribute('aria-expanded', box.hidden ? 'false' : 'true');
+          if (!box.hidden) {
+            const cur = box.querySelector('.is-current') || box.querySelector('[data-inst-kind]');
+            if (cur) cur.focus();
+          }
+        }
+        return;
+      }
+      const k = t.closest('[data-inst-kind]');
+      if (k) {
+        guideKindOverride = k.getAttribute('data-inst-kind');
+        renderInstallBody();
+        const g = backdrop.querySelector('[data-inst-name]');
+        if (g) {
+          g.setAttribute('tabindex', '-1');
+          g.focus();
+        }
+      }
+    });
     backdrop.querySelector('#install-dialog-native').onclick = () => {
       tryNativeInstall();
     };
@@ -263,7 +204,7 @@
       await openInstallDialog();
       const note = document.getElementById('install-dialog-note');
       if (note) {
-        note.textContent = 'Prohlížeč teď nenabízí přímé instalační okno. Postupujte prosím podle návodu výše.';
+        note.textContent = 'Prohlížeč teď nenabízí instalaci jedním klepnutím. Postupujte prosím podle kroků výše.';
       }
       return false;
     }
@@ -291,23 +232,34 @@
     }
   }
 
-  async function openInstallDialog() {
+  let currentKind = 'other';
+
+  function renderInstallBody() {
     const backdrop = ensureInstallDialog();
     const body = backdrop.querySelector('#install-dialog-body');
     const nativeBtn = backdrop.querySelector('#install-dialog-native');
+    const info = detectInfo();
+    const kind = guideKindOverride || currentKind;
+    const bip = !!installDeferred && !kind.startsWith('inapp');
+    body.innerHTML = KapkaInstall.renderGuide(kind, { info, bip });
+    nativeBtn.hidden = !bip;
+    nativeBtn.disabled = false;
+  }
+
+  async function openInstallDialog() {
+    const backdrop = ensureInstallDialog();
+    const nativeBtn = backdrop.querySelector('#install-dialog-native');
     const note = backdrop.querySelector('#install-dialog-note');
-    const kind = await resolveBrowserKind();
-    body.innerHTML = installGuideHtml(kind);
-    if (note) note.textContent = 'Vaše deníková data zůstávají v tomto zařízení. Instalace data nemaže.';
-    if (installDeferred) {
-      nativeBtn.hidden = false;
-      nativeBtn.disabled = false;
-    } else {
-      nativeBtn.hidden = true;
-    }
+    currentKind = await resolveBrowserKind();
+    renderInstallBody();
+    if (note) note.textContent = 'Vaše záznamy zůstávají v tomto zařízení. Instalace data nemaže.';
     backdrop.hidden = false;
     if (!nativeBtn.hidden) nativeBtn.focus();
-    else backdrop.querySelector('#install-dialog-close').focus();
+    else {
+      const title = backdrop.querySelector('#install-dialog-title');
+      title.setAttribute('tabindex', '-1');
+      title.focus();
+    }
   }
 
   /** Hlavní akce tlačítka „Nainstalovat zdarma“. */
@@ -338,6 +290,9 @@
       btn.textContent = st === 'prompt' ? 'Nainstalovat zdarma' : 'Jak nainstalovat';
     }
     const plat = detectPlatform();
+    document.querySelectorAll('[data-install-panel]').forEach((el) => {
+      el.hidden = st === 'standalone';
+    });
     document.querySelectorAll('[data-install-btn]').forEach((el) => {
       el.hidden = installed;
     });
@@ -352,10 +307,12 @@
       el.hidden = installed;
       el.textContent =
         st === 'prompt'
-          ? 'Jedním klepnutím přidáte Kapku života na plochu jako aplikaci.'
+          ? 'Jedním klepnutím ji přidáte na plochu.'
+          : plat.browser === 'inapp'
+          ? 'Nejdřív stránku otevřete v prohlížeči. Ukážeme Vám jak.'
           : plat.os === 'ios'
-          ? 'Na iPhonu a iPadu přes Sdílet → Přidat na plochu. Ukážeme Vám jak.'
-          : 'Ukážeme Vám, jak Kapku života přidat na plochu.';
+          ? 'Přes Sdílet → Přidat na plochu. Ukážeme Vám jak.'
+          : 'Ukážeme Vám, jak ji přidat na plochu.';
     });
     document.documentElement.setAttribute('data-install-state', st);
   }
@@ -390,6 +347,9 @@
       } else if (t.closest('[data-share-app]')) {
         e.preventDefault();
         if (window.KapkaShare) KapkaShare.shareApp();
+      } else if (t.closest('[data-install-guide]')) {
+        e.preventDefault();
+        openInstallDialog();
       } else if (t.closest('[data-copy-link]')) {
         e.preventDefault();
         if (window.KapkaShare) KapkaShare.copyLink();
