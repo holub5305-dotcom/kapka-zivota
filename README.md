@@ -6,7 +6,7 @@ Bezplatná česká aplikace pro dárce krve a plazmy.
 © 2026 Vladimír Holub. Všechna práva vyhrazena. Podmínky užití viz [LICENSE](LICENSE) (nejde o open-source licenci).
 
 Oficiální adresa: https://holub5305-dotcom.github.io/kapka-zivota/
-Aktuální verze: 1.2.1 (`js/version.js`)
+Aktuální verze: 1.2.2 (`js/version.js`)
 
 - **Zdarma**, bez povinné registrace
 - Data zůstávají ve Vašem prohlížeči (`localStorage`, klíč `kapka-zivota-v1`)

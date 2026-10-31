@@ -1087,25 +1087,6 @@ html[data-theme="dark"] {
   color: var(--muted);
 }
 
-.h-warning {
-  display: flex;
-  gap: 0.55rem;
-  align-items: flex-start;
-  margin-top: 0.8rem;
-  padding: 0.7rem 0.8rem;
-  border-radius: 12px;
-  background: var(--red-soft);
-  border: 1px solid rgba(198, 40, 40, 0.35);
-  color: var(--text);
-}
-.h-warning .ico {
-  color: var(--red-ink);
-  margin-top: 0.1rem;
-}
-.h-warning p {
-  margin: 0;
-  font-size: 0.88rem;
-}
 .h-source {
   margin: 0.6rem 0 0;
   font-size: 0.78rem;
@@ -1444,4 +1425,296 @@ html[data-theme="dark"] .ok-note {
   padding: 0.15rem 0.7rem;
   font-size: 0.85rem;
   border-radius: 9px;
+}
+
+/* ===== v1.2.2: stručné upozornění pod termínem + Příprava na odběr ===== */
+.h-note {
+  margin: 0.55rem 0 0.2rem;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: var(--muted);
+}
+.h-note a {
+  color: var(--red-ink);
+}
+.h-prep {
+  order: 2;
+  padding: 0;
+  overflow: hidden;
+  container-type: inline-size;
+}
+.h-prep-h {
+  margin: 0;
+  font-size: inherit;
+}
+.h-prep-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  width: 100%;
+  min-height: 72px;
+  padding: 0.9rem 1.1rem;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 18px;
+}
+.h-prep-toggle:focus-visible {
+  outline: 3px solid var(--red);
+  outline-offset: -3px;
+}
+.h-prep-ico {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex: none;
+  border-radius: 14px;
+  background: var(--red-soft);
+  color: var(--red-ink);
+}
+.h-prep-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+.h-prep-t {
+  font-size: 1.05rem;
+  font-weight: 750;
+}
+.h-prep-s {
+  font-size: 0.86rem;
+  color: var(--muted);
+}
+.h-prep-chev {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  flex: none;
+  border-radius: 999px;
+  background: var(--neutral-soft);
+  color: var(--muted);
+  transition: transform 0.18s ease;
+}
+.h-prep.is-open .h-prep-chev {
+  transform: rotate(90deg);
+}
+.h-prep-bar {
+  height: 3px;
+  margin: 0 1.1rem 0.9rem;
+  border-radius: 3px;
+  background: var(--neutral-soft);
+  overflow: hidden;
+}
+.h-prep-bar span {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: var(--red);
+  border-radius: 3px;
+  transition: width 0.2s ease;
+}
+.h-prep-panel {
+  padding: 0.9rem 1.1rem 1.1rem;
+  animation: h-prep-in 0.16s ease-out;
+}
+@keyframes h-prep-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.h-seg {
+  display: inline-flex;
+  padding: 3px;
+  gap: 3px;
+  border-radius: 999px;
+  background: var(--neutral-soft);
+  margin-bottom: 0.9rem;
+}
+.h-seg-btn {
+  min-height: 40px;
+  min-width: 92px;
+  padding: 0.35rem 1rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+.h-seg-btn[aria-pressed="true"] {
+  background: var(--surface);
+  color: var(--red-ink);
+  box-shadow: var(--shadow);
+}
+.h-seg-btn.is-plasma[aria-pressed="true"] {
+  color: var(--plasma-ink);
+}
+.h-seg-btn:focus-visible {
+  outline: 3px solid var(--red);
+  outline-offset: 1px;
+}
+.h-prep-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.1rem;
+}
+.h-prep-sec {
+  margin: 0 0 0.3rem;
+  font-size: 0.98rem;
+}
+.h-prep-progress {
+  margin: 0 0 0.5rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.h-checklist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.4rem;
+}
+.h-check {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 52px;
+  padding: 0.55rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface);
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+.h-check input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+}
+.h-check-box {
+  flex: none;
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  border: 2px solid var(--muted);
+  display: grid;
+  place-items: center;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+.h-check-box::after {
+  content: "";
+  width: 7px;
+  height: 13px;
+  border: solid #fff;
+  border-width: 0 3px 3px 0;
+  transform: translateY(-1px) rotate(45deg);
+  opacity: 0;
+}
+.h-check input:checked + .h-check-box {
+  background: var(--red);
+  border-color: var(--red);
+}
+.h-check input:checked + .h-check-box::after {
+  opacity: 1;
+}
+.h-check:has(input:checked) {
+  background: var(--red-soft);
+  border-color: transparent;
+}
+.h-check input:checked ~ .h-check-t {
+  color: var(--text);
+}
+.h-check input:focus-visible + .h-check-box {
+  outline: 3px solid var(--red);
+  outline-offset: 2px;
+}
+.h-check-t {
+  font-size: 0.95rem;
+  line-height: 1.35;
+}
+.h-prep-reset {
+  margin-top: 0.7rem;
+}
+.h-prep-hint {
+  margin: 0.45rem 0 0;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+.h-tip {
+  padding: 0.6rem 0 0.2rem;
+  border-top: 1px solid var(--border);
+}
+.h-tip:first-of-type {
+  border-top: 0;
+  padding-top: 0;
+}
+.h-tip h4 {
+  margin: 0 0 0.25rem;
+  font-size: 0.88rem;
+  color: var(--red-ink);
+  text-transform: none;
+}
+.h-tip ul {
+  margin: 0 0 0.4rem;
+  padding-left: 1.1rem;
+}
+.h-tip li {
+  font-size: 0.9rem;
+  line-height: 1.45;
+  margin: 0.15rem 0;
+}
+.h-prep-note {
+  margin: 1rem 0 0.4rem;
+  font-size: 0.85rem;
+  color: var(--text);
+}
+.h-prep-src {
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+.h-prep-src-t {
+  margin: 0;
+  font-weight: 700;
+}
+.h-prep-src ul {
+  margin: 0.2rem 0 0;
+  padding-left: 1rem;
+}
+.h-prep-src li {
+  margin: 0.1rem 0;
+  overflow-wrap: anywhere;
+}
+.h-prep-src a {
+  color: var(--red-ink);
+}
+@media (min-width: 720px) {
+  .h-prep {
+    grid-column: 1 / -1;
+  }
+}
+@container (min-width: 560px) {
+  .h-prep-grid {
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    gap: 1.4rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .h-prep-panel {
+    animation: none;
+  }
 }

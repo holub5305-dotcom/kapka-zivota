@@ -8,9 +8,9 @@
     pin: '<path d="M12 21s-6.5-5.7-6.5-11a6.5 6.5 0 0 1 13 0c0 5.3-6.5 11-6.5 11Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.4" fill="none" stroke="currentColor" stroke-width="2"/>',
     bell: '<path d="M6 16.5V11a6 6 0 1 1 12 0v5.5l1.5 2h-15l1.5-2Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M10 20.5a2 2 0 0 0 4 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
     calendar: '<rect x="3.5" y="5" width="17" height="15.5" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3.5 10h17M8 3v4M16 3v4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
-    alert: '<path d="M12 3.5 2.8 19.5h18.4L12 3.5Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 10v4.5M12 17.2v.3" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>',
     heart: '<path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.3a4.3 4.3 0 0 1 7.5 2.5C19.5 15.4 12 20 12 20Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>',
     info: '<circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 11v5.5M12 7.6v.3" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>',
+    prep: '<rect x="5" y="4" width="14" height="17" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9 4.2V3.5A1.5 1.5 0 0 1 10.5 2h3A1.5 1.5 0 0 1 15 3.5v.7" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="m8.7 12.6 2.2 2.2 4.4-4.6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>',
     chevron: '<path d="m9 6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>'
   };
 
@@ -90,6 +90,124 @@
       </li>`;
   }
 
+  /* —— Příprava na odběr: rozbalovací karta s doporučeními a odškrtávacím seznamem —— */
+  let prepType = null; // volba Krev/Plazma v rámci relace (výchozí podle posledního záznamu)
+  let prepOpen = false;
+
+  function prepTypeWord(t) {
+    return t === 'Plazma' ? 'plazma' : 'krev';
+  }
+
+  function setupPrep(outlet, defaultType) {
+    const P = window.KapkaPrep;
+    const btn = outlet.querySelector('#h-prep-toggle');
+    const panel = outlet.querySelector('#h-prep-panel');
+    const sub = outlet.querySelector('#h-prep-sub');
+    const fill = outlet.querySelector('#h-prep-bar-fill');
+    if (!btn || !panel) return;
+    if (!prepType) prepType = defaultType;
+
+    function updateSummary() {
+      const c = P.count(prepType);
+      sub.textContent = c.done + ' z ' + c.total + ' připraveno · ' + prepTypeWord(prepType);
+      fill.style.width = Math.round((c.done / c.total) * 100) + '%';
+      const prog = panel.querySelector('[data-prep-progress]');
+      if (prog) prog.textContent = c.done === c.total ? 'Vše připraveno – děkujeme!' : c.done + ' z ' + c.total + ' připraveno';
+    }
+
+    function renderPanel() {
+      const st = P.load();
+      const list = P.CHECKLIST[prepType];
+      const tips = P.TIPS[prepType];
+      const usedSrc = [];
+      tips.forEach((g) => g.src.forEach((k) => usedSrc.indexOf(k) === -1 && usedSrc.push(k)));
+      panel.innerHTML = `
+        <div class="h-seg" role="group" aria-label="Typ odběru">
+          ${['Krev', 'Plazma']
+            .map(
+              (t) => `<button type="button" class="h-seg-btn ${t === 'Plazma' ? 'is-plasma' : 'is-blood'}" data-prep-type="${t}" aria-pressed="${t === prepType}">${t}</button>`
+            )
+            .join('')}
+        </div>
+        <div class="h-prep-grid">
+          <section class="h-prep-check" aria-labelledby="h-prep-check-t">
+            <h3 id="h-prep-check-t" class="h-prep-sec">Před odběrem si odškrtněte</h3>
+            <p class="h-prep-progress" data-prep-progress aria-live="polite"></p>
+            <ul class="h-checklist">
+              ${list
+                .map(
+                  (it) => `
+                <li><label class="h-check">
+                  <input type="checkbox" data-prep-id="${it.id}" ${st.checked[prepType][it.id] ? 'checked' : ''} />
+                  <span class="h-check-box" aria-hidden="true"></span>
+                  <span class="h-check-t">${escapeHtml(it.t)}</span>
+                </label></li>`
+                )
+                .join('')}
+            </ul>
+            <button type="button" class="btn btn-ghost btn-sm h-prep-reset" data-prep-reset>Začít znovu</button>
+            <p class="h-prep-hint">Odškrtnutí zůstává jen v tomto zařízení, mimo Váš deník.</p>
+          </section>
+          <section class="h-prep-tips" aria-labelledby="h-prep-tips-t">
+            <h3 id="h-prep-tips-t" class="h-prep-sec">Doporučení – ${prepType === 'Plazma' ? 'odběr plazmy' : 'odběr krve'}</h3>
+            ${tips
+              .map(
+                (g) => `
+              <div class="h-tip">
+                <h4>${escapeHtml(g.h)}</h4>
+                <ul>${g.items.map((i) => '<li>' + escapeHtml(i) + '</li>').join('')}</ul>
+              </div>`
+              )
+              .join('')}
+          </section>
+        </div>
+        <p class="h-prep-note">Rozhodují vždy pokyny Vašeho odběrového centra. Doporučení jsou obecná a nenahrazují radu lékaře.</p>
+        <div class="h-prep-src">
+          <p class="h-prep-src-t">Zdroje</p>
+          <ul>${usedSrc
+            .map((k) => `<li><a href="${P.SOURCES[k].url}" target="_blank" rel="noopener">${escapeHtml(P.SOURCES[k].label)}</a></li>`)
+            .join('')}</ul>
+        </div>`;
+
+      panel.querySelectorAll('[data-prep-type]').forEach((b) => {
+        b.onclick = () => {
+          const t = b.getAttribute('data-prep-type');
+          if (t === prepType) return;
+          prepType = t;
+          renderPanel();
+          const nb = panel.querySelector(`[data-prep-type="${t}"]`);
+          if (nb) nb.focus();
+        };
+      });
+      panel.querySelectorAll('[data-prep-id]').forEach((cb) => {
+        cb.onchange = () => {
+          P.toggle(prepType, cb.getAttribute('data-prep-id'), cb.checked);
+          updateSummary();
+        };
+      });
+      panel.querySelector('[data-prep-reset]').onclick = () => {
+        P.reset(prepType);
+        panel.querySelectorAll('[data-prep-id]').forEach((cb) => (cb.checked = false));
+        updateSummary();
+        const prog = panel.querySelector('[data-prep-progress]');
+        if (prog) prog.textContent = 'Seznam je připraven znovu – 0 z ' + P.CHECKLIST[prepType].length;
+      };
+      updateSummary();
+    }
+
+    function setOpen(open) {
+      prepOpen = open;
+      btn.setAttribute('aria-expanded', String(open));
+      outlet.querySelector('#h-prep').classList.toggle('is-open', open);
+      panel.hidden = !open;
+      if (open) renderPanel();
+    }
+
+    btn.onclick = () => setOpen(!prepOpen);
+    updateSummary();
+    setOpen(prepOpen);
+  }
+
   KapkaRouter.register('/home', async function ({ outlet }) {
     const state = KapkaStore.getState();
     const stats = KapkaStore.donationStats();
@@ -142,15 +260,11 @@
           <button type="button" class="btn btn-primary h-cta" data-go="diary-add">${icon('plus', 'ico-sm')} Přidat první odběr</button>
         </article>`;
 
-    const srcNote = src
-      ? `<p class="h-source">Podle obecných pravidel (<a href="${src.vyhlaska.url}" target="_blank" rel="noopener">${src.vyhlaska.label}</a>; shrnutí: <a href="${src.stl.url}" target="_blank" rel="noopener">${src.stl.label}</a>). Odběrová centra často volí delší intervaly.</p>`
+    // Stručné, nenápadné upozornění pod orientačním termínem (nahrazuje dřívější velký výstražný panel)
+    const srcLinks = src
+      ? ` (<a href="${src.vyhlaska.url}" target="_blank" rel="noopener">vyhláška č. 143/2008 Sb.</a>; <a href="${src.stl.url}" target="_blank" rel="noopener">shrnutí STL ČLS JEP</a>)`
       : '';
-
-    const disclaimer = `
-      <div class="h-warning" role="note">
-        ${icon('alert', 'ico-sm')}
-        <p><strong>Nejde o lékařské potvrzení.</strong> Skutečnou způsobilost a termín odběru určuje vždy odběrové centrum a Váš aktuální zdravotní stav.</p>
-      </div>`;
+    const note = `<p class="h-note">Orientačně podle obecných pravidel${srcLinks}, nejde o lékařské potvrzení. Způsobilost určuje odběrové centrum.</p>`;
 
     let nextBody;
     if (elig.hasData) {
@@ -163,16 +277,14 @@
           ${nextRow('Krev', elig.blood)}
           ${nextRow('Plazma', elig.plasma)}
         </ul>
+        ${note}
         <p class="h-meta">Krev za posledních 12 měsíců: <strong>${elig.bloodLast12} z ${elig.bloodLimit}</strong>. ${sexNote}</p>
         <p class="h-meta">Limit plazmy 25 litrů za 12 měsíců aplikace nepočítá (neeviduje objem).</p>
-        ${disclaimer}
-        ${srcNote}
         <button type="button" class="btn btn-secondary h-cta" data-go="reminder-add">${icon('bell', 'ico-sm')} Naplánovat připomínku</button>`;
     } else {
       nextBody = `
         <p class="h-meta">Termín Vám sdělí odběrové centrum. Po prvním záznamu zde uvidíte orientační nejdřívější termín pro krev i plazmu.</p>
-        ${disclaimer}
-        ${srcNote}`;
+        ${note}`;
     }
 
     const nextCard = `
@@ -183,6 +295,24 @@
         </header>
         ${nextBody}
       </article>`;
+
+    const prepCard = window.KapkaPrep
+      ? `
+      <article class="h-card h-prep" id="h-prep">
+        <h2 class="h-prep-h">
+          <button type="button" class="h-prep-toggle" id="h-prep-toggle" aria-expanded="false" aria-controls="h-prep-panel">
+            <span class="h-prep-ico">${icon('prep')}</span>
+            <span class="h-prep-text">
+              <span class="h-prep-t">Příprava na odběr</span>
+              <span class="h-prep-s" id="h-prep-sub"></span>
+            </span>
+            <span class="h-prep-chev">${icon('chevron', 'ico-sm')}</span>
+          </button>
+        </h2>
+        <div class="h-prep-bar" aria-hidden="true"><span id="h-prep-bar-fill"></span></div>
+        <div class="h-prep-panel" id="h-prep-panel" role="region" aria-labelledby="h-prep-toggle" hidden></div>
+      </article>`
+      : '';
 
     const actions = [
       { go: 'diary-add', ic: 'plus', t: 'Přidat odběr', s: 'Nový záznam', primary: true },
@@ -267,6 +397,7 @@
           <div class="h-col">
             ${nextCard}
           </div>
+          ${prepCard}
         </div>
 
         <p class="h-foot">
@@ -290,6 +421,8 @@
       share: '/settings/share',
       about: '/settings/about'
     };
+    if (window.KapkaPrep) setupPrep(outlet, last && last.type === 'Plazma' ? 'Plazma' : 'Krev');
+
     outlet.querySelectorAll('[data-go]').forEach((btn) => {
       btn.onclick = () => {
         const r = routes[btn.getAttribute('data-go')];
