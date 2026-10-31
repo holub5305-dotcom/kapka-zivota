@@ -1,12 +1,12 @@
 {
   "name": "kapka-zivota",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "author": "Vladimír Holub",
   "license": "UNLICENSED",
   "private": true,
   "description": "PWA Kapka života — dárcovský deník a stanice ČR",
   "scripts": {
     "start": "npx --yes serve -l 4173 .",
-    "test": "node tests/store.test.js && node tests/stations.test.js && node tests/eligibility.test.js && node tests/version.test.js && node tests/prep.test.js && node tests/install.test.js"
+    "test": "node tests/store.test.js && node tests/stations.test.js && node tests/eligibility.test.js && node tests/version.test.js && node tests/prep.test.js && node tests/install.test.js && node tests/ics.test.js"
   }
 }

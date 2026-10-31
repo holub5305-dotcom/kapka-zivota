@@ -1952,3 +1952,44 @@ html:not([data-install-state="prompt"]) .h-install-guide {
     animation: none;
   }
 }
+
+/* ===== v1.2.4: krátké vysvětlení omezení upozornění + nápověda k baterii ===== */
+.rem-limit {
+  margin: 0 0 0.5rem;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--muted);
+}
+.rem-battery {
+  margin: 0 0 0.85rem;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--muted);
+}
+.rem-battery summary {
+  cursor: pointer;
+  min-height: 32px;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  color: var(--red-ink);
+}
+.rem-battery p {
+  margin: 0.35rem 0;
+}
+.rem-battery strong {
+  color: var(--text, inherit);
+}
+.rem-battery a {
+  color: var(--red-ink);
+}
+/* delší popisek „Uložit do kalendáře“: na úzkém displeji tlačítka pod textem termínu (bez vodorovného posunu) */
+@media (max-width: 600px) {
+  .rem-card {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .rem-card .compact-actions.wrap {
+    justify-content: flex-start;
+  }
+}

@@ -3,8 +3,8 @@
  * APP_VERSION musí odpovídat js/version.js a ?v= v index.html (hlídá tests/version.test.js).
  * Soubory mají ?v=<verze>, aby se po aktualizaci hned načetla nová verze
  * (stará cache je jinak cache-first). Data v localStorage SW nikdy nemaže. */
-const APP_VERSION = '1.2.3';
-const CACHE = 'kapka-zivota-shell-v9-' + APP_VERSION;
+const APP_VERSION = '1.2.4';
+const CACHE = 'kapka-zivota-shell-v10-' + APP_VERSION;
 const V = '?v=' + APP_VERSION;
 const PRECACHE = [
   './',
@@ -22,6 +22,7 @@ const PRECACHE = [
   './js/screens/welcome.js' + V,
   './js/screens/home.js' + V,
   './js/screens/diary.js' + V,
+  './js/ics.js' + V,
   './js/screens/reminders.js' + V,
   './js/screens/stations.js' + V,
   './js/screens/newdonor.js' + V,

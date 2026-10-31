@@ -51,7 +51,7 @@ Otevřete v prohlížeči: `http://localhost:4173`
 
 1. Domů — statistiky Celkem / Krev / Plazma
 2. Dárcovský deník — přidání, úprava, mazání s potvrzením
-3. Kalendář a připomínky — upozornění den předem / 2 h / vlastní, export `.ics`
+3. Kalendář a připomínky — upozornění den předem / 2 h / vlastní, tlačítko „Uložit do kalendáře“ (`.ics`)
 4. Transfuzní stanice — 108 pracovišť, filtry kraj / město / typ / druh
 5. Informace pro nové dárce
 6. Nastavení — téma, soukromí
@@ -62,7 +62,7 @@ Otevřete v prohlížeči: `http://localhost:4173`
 - **Android:** po instalaci a povolení oznámení fungují nejlépe.
 - **iOS:** spolehlivá až po „Přidat na plochu“ a udělení oprávnění.
 - Aplikace při otevření zkontroluje blízké termíny (banner / Notification API).
-- Pro jistotu vždy můžete exportovat termín do kalendáře telefonu (`.ics`).
+- Pro jistotu si termín vždy můžete uložit do kalendáře telefonu (tlačítko „Uložit do kalendáře“, soubor `.ics`).
 
 ## Testy
 

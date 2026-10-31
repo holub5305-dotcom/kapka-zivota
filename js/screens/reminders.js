@@ -43,69 +43,14 @@
     );
   }
 
+  // v1.2.4: .ics se tvoří v js/ics.js (escapování, zalomení řádků, vlastní čas upozornění)
   function buildIcs(reminder) {
-    const start = new Date(reminder.datetime);
-    if (Number.isNaN(start.getTime())) throw new Error('Neplatné datum');
-    const end = new Date(start.getTime() + 60 * 60 * 1000);
-    const stamp = new Date();
-    function icsDate(d) {
-      return (
-        d.getUTCFullYear() +
-        String(d.getUTCMonth() + 1).padStart(2, '0') +
-        String(d.getUTCDate()).padStart(2, '0') +
-        'T' +
-        String(d.getUTCHours()).padStart(2, '0') +
-        String(d.getUTCMinutes()).padStart(2, '0') +
-        String(d.getUTCSeconds()).padStart(2, '0') +
-        'Z'
-      );
-    }
-    let alarmTrigger = '-P1D';
-    if (reminder.notifyMode === 'hours_2') alarmTrigger = '-PT2H';
-    else if (reminder.notifyMode === 'custom' && reminder.customNotifyAt) {
-      const c = new Date(reminder.customNotifyAt);
-      if (!Number.isNaN(c.getTime())) {
-        const diffMin = Math.round((start - c) / 60000);
-        if (diffMin > 0) alarmTrigger = '-PT' + diffMin + 'M';
-      }
-    }
-    const uid = reminder.id + '@kapka-zivota';
-    const summary = (reminder.title || 'Připomínka odběru').replace(/[,;\\]/g, ' ');
-    const desc = [
-      reminder.stationName ? 'Stanice: ' + reminder.stationName : '',
-      reminder.note || '',
-      'Zdroj: ' + (reminder.source || 'Vlastní'),
-      'Exportováno z aplikace Kapka života'
-    ]
-      .filter(Boolean)
-      .join('\\n')
-      .replace(/[,;]/g, ' ');
-
-    return [
-      'BEGIN:VCALENDAR',
-      'VERSION:2.0',
-      'PRODID:-//Kapka zivota//CS',
-      'CALSCALE:GREGORIAN',
-      'METHOD:PUBLISH',
-      'BEGIN:VEVENT',
-      'UID:' + uid,
-      'DTSTAMP:' + icsDate(stamp),
-      'DTSTART:' + icsDate(start),
-      'DTEND:' + icsDate(end),
-      'SUMMARY:' + summary,
-      'DESCRIPTION:' + desc,
-      'BEGIN:VALARM',
-      'TRIGGER:' + alarmTrigger,
-      'ACTION:DISPLAY',
-      'DESCRIPTION:' + summary,
-      'END:VALARM',
-      'END:VEVENT',
-      'END:VCALENDAR'
-    ].join('\r\n');
+    return KapkaIcs.build(reminder).ics;
   }
 
   function downloadIcs(reminder) {
-    const ics = buildIcs(reminder);
+    const res = KapkaIcs.build(reminder);
+    const ics = res.ics;
     const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
     const a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
@@ -116,6 +61,28 @@
       URL.revokeObjectURL(a.href);
       a.remove();
     }, 500);
+    if (!res.alarm.ok && window.KapkaShare) {
+      KapkaShare.toast('Vlastní čas upozornění je až po začátku termínu, proto je termín uložen bez upozornění. Čas můžete opravit v Upravit.');
+    }
+    return res;
+  }
+
+  function isIOS() {
+    const ua = navigator.userAgent || '';
+    return /iPhone|iPad|iPod/i.test(ua) || (/Macintosh/i.test(ua) && (navigator.maxTouchPoints || 0) > 1);
+  }
+
+  // v1.2.4: stručná nápověda k omezení baterie (Android – Xiaomi, Vivo). Na iPhonu se nezobrazuje.
+  function batteryHelpHtml() {
+    return `
+        <details class="rem-battery">
+          <summary>Upozornění chodí pozdě? Nastavení baterie (Xiaomi, Vivo)</summary>
+          <p>Telefon může prohlížeči na pozadí omezovat běh. Nastavte to u prohlížeče, ve kterém aplikaci používáte (např. Brave nebo Chrome). Názvy položek se mohou lišit podle verze systému.</p>
+          <p><strong>Xiaomi / Redmi / POCO (HyperOS, MIUI):</strong> Nastavení → Aplikace → Správa aplikací → [prohlížeč] → Spořič baterie → Bez omezení <span class="muted">(Settings → Apps → Manage apps → Battery saver → No restrictions)</span>. Zapněte také Automatické spuštění <span class="muted">(Autostart)</span>.</p>
+          <p><strong>Vivo (Funtouch OS, OriginOS):</strong> Nastavení → Baterie → Spotřeba energie na pozadí → u prohlížeče povolit vysokou spotřebu na pozadí <span class="muted">(Settings → Battery → Background power consumption management → High background power usage)</span>.</p>
+          <p><strong>Ostatní Android:</strong> Nastavení → Aplikace → [prohlížeč] → Baterie → Bez omezení <span class="muted">(Unrestricted)</span>.</p>
+          <p class="muted">Návody pro další značky: <a href="https://dontkillmyapp.com/" target="_blank" rel="noopener noreferrer">dontkillmyapp.com</a> (anglicky)</p>
+        </details>`;
   }
 
   async function requestNotifyPermission() {
@@ -143,6 +110,8 @@
         </header>
 
         <p class="notif-hint" id="notif-hint" role="status" hidden></p>
+        <p class="rem-limit">Upozornění z prohlížeče může při zamčeném telefonu nebo zavřené aplikaci přijít se zpožděním. Pro jistotu si termín uložte do kalendáře.</p>
+        ${isIOS() ? '' : batteryHelpHtml()}
 
         <div class="card-list">
           ${
@@ -150,7 +119,7 @@
               ? list
                   .map(
                     (r) => `
-            <article class="compact-card">
+            <article class="compact-card rem-card">
               <div class="compact-main">
                 <span class="badge">${escapeHtml(r.source)}</span>
                 <strong>${escapeHtml(r.title)}</strong>
@@ -160,7 +129,7 @@
                 ${r.note ? `<span class="note-line">${escapeHtml(r.note)}</span>` : ''}
               </div>
               <div class="compact-actions wrap">
-                <button type="button" class="btn btn-ghost btn-sm" data-ics="${r.id}">Export .ics</button>
+                <button type="button" class="btn btn-ghost btn-sm" data-ics="${r.id}">Uložit do kalendáře</button>
                 <button type="button" class="btn btn-ghost btn-sm" data-edit="${r.id}">Upravit</button>
                 <button type="button" class="btn btn-danger-ghost btn-sm" data-del="${r.id}">Smazat</button>
               </div>
@@ -190,7 +159,7 @@
       if (!hint) return;
       if (!('Notification' in window)) {
         hint.hidden = false;
-        hint.textContent = 'Upozornění se zobrazí při otevření aplikace. Termín si můžete uložit i do kalendáře (.ics).';
+        hint.textContent = 'Upozornění se zobrazí při otevření aplikace. Termín si můžete uložit i do kalendáře.';
         return;
       }
       const perm = Notification.permission;
@@ -324,6 +293,9 @@
           const c = fd.get('customNotifyAt');
           if (!c) throw new Error('Zadejte vlastní čas upozornění');
           customNotifyAt = new Date(c).toISOString();
+          if (iso && new Date(customNotifyAt).getTime() > new Date(iso).getTime()) {
+            throw new Error('Vlastní čas upozornění musí být před termínem (nebo ve stejnou chvíli).');
+          }
         }
         KapkaStore.upsertReminder({
           id: existing && existing.id ? existing.id : undefined,
