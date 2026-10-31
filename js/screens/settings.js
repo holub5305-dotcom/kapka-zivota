@@ -18,6 +18,17 @@
           <p class="muted">Volba se uloží jen ve Vašem prohlížeči. Systémový režim respektuje preferenci zařízení.</p>
         </div>
 
+        <div class="card">
+          <h2 class="card-title">Orientační termíny (nepovinné)</h2>
+          <fieldset class="fieldset">
+            <legend>Roční limit odběrů plné krve podle vyhlášky č. 143/2008 Sb.</legend>
+            <label class="radio-row"><input type="radio" name="donorSex" value="" ${!state.donorSex ? 'checked' : ''} /> Neuvádět (obecně 4× za 12 měsíců)</label>
+            <label class="radio-row"><input type="radio" name="donorSex" value="zena" ${state.donorSex === 'zena' ? 'checked' : ''} /> Žena (nejvýše 4× za 12 měsíců)</label>
+            <label class="radio-row"><input type="radio" name="donorSex" value="muz" ${state.donorSex === 'muz' ? 'checked' : ''} /> Muž (nejvýše 5× za 12 měsíců)</label>
+          </fieldset>
+          <p class="muted">Údaj je nepovinný, zůstává jen ve Vašem zařízení a slouží pouze k orientačnímu výpočtu na Domů. Skutečný termín určuje odběrové centrum.</p>
+        </div>
+
         <div class="card stack gap-sm" id="install-card">
           <h2 class="card-title">Instalace</h2>
           <p>Kapku života můžete mít jako aplikaci na ploše. Data zůstávají ve Vašem prohlížeči.</p>
@@ -41,7 +52,7 @@
             <li>Zdarma, bez povinné registrace</li>
             <li>Čeština, data lokálně ve Vašem zařízení</li>
             <li>Nejde o oficiální aplikaci nemocnic ani Českého červeného kříže</li>
-            <li>Nestanovuje zdravotní způsobilost ani automatické termíny odběru</li>
+            <li>Nestanovuje zdravotní způsobilost; termíny na Domů jsou jen orientační podle obecných pravidel</li>
           </ul>
           <p class="muted">Verze úložiště: kapka-zivota-v1</p>
         </div>
@@ -58,6 +69,9 @@
         KapkaStore.setTheme(r.value);
         KapkaStore.applyThemeToDocument(r.value);
       };
+    });
+    outlet.querySelectorAll('[name="donorSex"]').forEach((r) => {
+      r.onchange = () => KapkaStore.setDonorSex(r.value);
     });
     outlet.querySelectorAll('[data-go]').forEach((b) => {
       b.onclick = () => KapkaRouter.navigate('/' + b.getAttribute('data-go'));

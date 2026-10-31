@@ -31,7 +31,7 @@
         <article class="card">
           <h2>Podmínky (informativní)</h2>
           <p>Obecně se u dárcovství krve a plazmy posuzuje věk, hmotnost, zdravotní anamnéza, intervaly mezi odběry a další kritéria stanovená pracovištěm a platnými předpisy.</p>
-          <p class="disclaimer"><strong>Kapka života nestanovuje, zda jste způsobilí k odběru, ani nepočítá datum dalšího možného odběru.</strong> Rozhodnutí vždy provádí zdravotnický personál na místě. Než si naplánujete návštěvu, ověřte aktuální podmínky u konkrétní stanice.</p>
+          <p class="disclaimer"><strong>Kapka života nestanovuje, zda jste způsobilí k odběru.</strong> Na obrazovce Domů ukazuje jen orientační nejdřívější termín podle obecných pravidel (vyhláška č. 143/2008 Sb.), nejde o lékařské potvrzení. Rozhodnutí vždy provádí zdravotnický personál na místě. Než si naplánujete návštěvu, ověřte aktuální podmínky u konkrétní stanice.</p>
         </article>
 
         <article class="card">
@@ -42,7 +42,7 @@
           </details>
           <details>
             <summary>Jak často mohu darovat?</summary>
-            <p>Intervaly se liší u krve a plazmy a stanovuje je pracoviště podle předpisů a Vašeho zdravotního stavu. Aplikace je nepočítá automaticky — zeptejte se na stanici.</p>
+            <p>Intervaly se liší u krve a plazmy a stanovuje je pracoviště podle předpisů a Vašeho zdravotního stavu. Podle vyhlášky č. 143/2008 Sb. je mezi odběry plné krve nejméně 8 týdnů (nejvýše 5× za 12 měsíců u mužů, 4× u žen), mezi odběry plazmy nejméně 14 dní, po krvi k plazmě 4 týdny a po plazmě ke krvi 48 hodin. Pracoviště často volí delší intervaly — konkrétní termín Vám sdělí odběrové centrum.</p>
           </details>
           <details>
             <summary>Kde najdu stanici?</summary>

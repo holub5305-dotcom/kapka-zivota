@@ -41,6 +41,9 @@
     if (!Array.isArray(s.reminders)) s.reminders = [];
     if (!['system', 'light', 'dark'].includes(s.theme)) s.theme = 'system';
     s.welcomeDone = !!s.welcomeDone;
+    // Volitelné (aditivní) pole: pohlaví jen pro orientační roční limit odběrů krve.
+    // Když chybí, nic se nedoplňuje — existující data zůstávají beze změny.
+    if ('donorSex' in s && !['muz', 'zena'].includes(s.donorSex)) delete s.donorSex;
     s.version = 1;
     return s;
   }
@@ -211,6 +214,7 @@
         version: s.version,
         welcomeDone: s.welcomeDone,
         theme: s.theme,
+        donorSex: s.donorSex || undefined,
         donations: s.donations,
         reminders: s.reminders
       }
@@ -226,6 +230,7 @@
     return {
       welcomeDone: !!data.welcomeDone,
       theme: ['system', 'light', 'dark'].includes(data.theme) ? data.theme : undefined,
+      donorSex: ['muz', 'zena'].includes(data.donorSex) ? data.donorSex : undefined,
       donations: donations.map((d) => ({
         id: d.id || uid('don'),
         type: d.type === 'Plazma' ? 'Plazma' : 'Krev',
@@ -269,6 +274,7 @@
         }
       }
       if (parsed.theme) s.theme = parsed.theme;
+      if (parsed.donorSex && !s.donorSex) s.donorSex = parsed.donorSex;
       return s;
     });
   }
@@ -279,6 +285,15 @@
       s.reminders = parsed.reminders.slice();
       if (typeof parsed.welcomeDone === 'boolean') s.welcomeDone = parsed.welcomeDone;
       if (parsed.theme) s.theme = parsed.theme;
+      if (parsed.donorSex) s.donorSex = parsed.donorSex;
+      return s;
+    });
+  }
+
+  function setDonorSex(sex) {
+    return update((s) => {
+      if (sex === 'muz' || sex === 'zena') s.donorSex = sex;
+      else delete s.donorSex;
       return s;
     });
   }
@@ -307,6 +322,7 @@
     notifyAtFor,
     setWelcomeDone,
     setTheme,
+    setDonorSex,
     exportPayload,
     parseImport,
     mergeImport,

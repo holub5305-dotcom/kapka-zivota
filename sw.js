@@ -1,21 +1,24 @@
-/* Kapka života — service worker */
-const CACHE = 'kapka-zivota-shell-v4';
+/* Kapka života — service worker
+ * v5: soubory v index.html mají ?v=5, aby se po aktualizaci hned načetla nová verze
+ * (stará cache je jinak cache-first). Data v localStorage SW nikdy nemaže. */
+const CACHE = 'kapka-zivota-shell-v5';
 const PRECACHE = [
   './',
   './index.html',
   './manifest.webmanifest',
-  './css/app.css',
-  './js/app.js',
-  './js/store.js',
-  './js/router.js',
-  './js/screens/welcome.js',
-  './js/screens/home.js',
-  './js/screens/diary.js',
-  './js/screens/reminders.js',
-  './js/screens/stations.js',
-  './js/screens/newdonor.js',
-  './js/screens/settings.js',
-  './js/screens/backup.js',
+  './css/app.css?v=5',
+  './js/app.js?v=5',
+  './js/store.js?v=5',
+  './js/router.js?v=5',
+  './js/eligibility.js?v=5',
+  './js/screens/welcome.js?v=5',
+  './js/screens/home.js?v=5',
+  './js/screens/diary.js?v=5',
+  './js/screens/reminders.js?v=5',
+  './js/screens/stations.js?v=5',
+  './js/screens/newdonor.js?v=5',
+  './js/screens/settings.js?v=5',
+  './js/screens/backup.js?v=5',
   './data/stations.json',
   './icons/icon-192.png',
   './icons/icon-512.png',
