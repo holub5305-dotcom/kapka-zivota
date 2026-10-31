@@ -73,6 +73,7 @@
     const ctx = { path, params: Object.assign({}, (m && m.params) || {}, q), outlet };
     await m.fn(ctx);
     updateNav(path);
+    if (window.KapkaApp && typeof window.KapkaApp.refreshInstallUI === 'function') window.KapkaApp.refreshInstallUI();
     outlet.focus({ preventScroll: true });
   }
 

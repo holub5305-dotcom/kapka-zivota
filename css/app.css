@@ -1231,3 +1231,197 @@ html[data-theme="dark"] {
     scroll-behavior: auto !important;
   }
 }
+
+/* ===== v1.2.0: instalace, sdílení, QR, O aplikaci ===== */
+.h-install {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1rem;
+  padding: 0.9rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 16px;
+  background: var(--surface);
+  border: 2px solid var(--red);
+  box-shadow: var(--shadow);
+}
+.h-install-main {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 0;
+  flex: 1 1 260px;
+}
+.h-install-ico {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--red-soft);
+  color: var(--red);
+  flex: none;
+}
+.h-install-ico .ico {
+  width: 26px;
+  height: 26px;
+}
+.h-install-t {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1rem;
+}
+.h-install-s {
+  margin: 0.1rem 0 0;
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+.h-install-s.is-ok,
+.ok-note {
+  color: #1b5e20;
+  font-weight: 600;
+}
+html[data-theme="dark"] .h-install-s.is-ok,
+html[data-theme="dark"] .ok-note {
+  color: #81c784;
+}
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .h-install-s.is-ok,
+  html:not([data-theme="light"]) .ok-note {
+    color: #81c784;
+  }
+}
+.h-install-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  flex: 1 1 260px;
+  justify-content: flex-end;
+}
+.h-install-btns .btn {
+  flex: 1 1 auto;
+  min-height: 48px;
+}
+.h-install-btn {
+  font-size: 1.02rem;
+}
+@media (max-width: 479px) {
+  .h-install-btns {
+    justify-content: stretch;
+  }
+  .h-install-btns .btn {
+    flex-basis: 100%;
+  }
+}
+
+.kapka-toast {
+  position: fixed;
+  left: 50%;
+  bottom: calc(var(--nav-h) + 1rem + env(safe-area-inset-bottom, 0px));
+  transform: translateX(-50%);
+  z-index: 60;
+  max-width: min(520px, calc(100% - 1.5rem));
+  padding: 0.7rem 1rem;
+  border-radius: 12px;
+  background: #1a1a1a;
+  color: #fff;
+  font-size: 0.92rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  word-break: break-word;
+}
+.kapka-toast[hidden] {
+  display: none !important;
+}
+
+.info-screen .card + .card {
+  margin-top: 0.85rem;
+}
+.about-card {
+  text-align: center;
+}
+.about-card p {
+  margin: 0.25rem 0;
+}
+.about-logo {
+  display: block;
+  margin: 0 auto 0.5rem;
+}
+.about-name {
+  font-size: 1.35rem;
+}
+.about-meta {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.35rem 0.75rem;
+  margin: 1rem auto 0;
+  max-width: 460px;
+  text-align: left;
+}
+.about-meta dt {
+  font-weight: 700;
+}
+.about-meta dd {
+  margin: 0;
+  word-break: break-all;
+}
+.about-disclaimer {
+  font-weight: 600;
+}
+.license-details summary {
+  cursor: pointer;
+  margin: 0;
+}
+.share-url code {
+  display: block;
+  padding: 0.6rem 0.75rem;
+  border-radius: 10px;
+  background: var(--red-soft);
+  word-break: break-all;
+  font-size: 0.95rem;
+}
+.qr-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  align-items: center;
+}
+.qr-figure {
+  margin: 0;
+  text-align: center;
+}
+.qr-figure img {
+  display: block;
+  width: 240px;
+  height: 240px;
+  max-width: 100%;
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  padding: 6px;
+}
+.qr-figure figcaption {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 0.4rem;
+}
+.qr-actions {
+  flex: 1 1 240px;
+}
+.qr-actions .btn {
+  text-decoration: none;
+  text-align: center;
+  justify-content: center;
+}
+.install-more {
+  margin-top: 0.75rem;
+  font-size: 0.92rem;
+}
+.install-more summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+/* lepší kontrast sekundárních tlačítek v tmavém režimu */
+.btn-secondary {
+  color: var(--red-ink);
+}

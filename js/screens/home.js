@@ -241,6 +241,21 @@
           <span class="h-hero-drop" aria-hidden="true">${icon('drop')}</span>
         </header>
 
+        <div class="h-install" role="region" aria-label="Instalace a sdílení">
+          <div class="h-install-main">
+            <span class="h-install-ico" aria-hidden="true">${icon('drop')}</span>
+            <div class="h-install-text">
+              <p class="h-install-t">Kapka života zdarma na Vaší ploše</p>
+              <p class="h-install-s" data-install-hint>Ukážeme Vám, jak Kapku života přidat na plochu.</p>
+              <p class="h-install-s is-ok" data-install-status hidden>Aplikace je nainstalovaná.</p>
+            </div>
+          </div>
+          <div class="h-install-btns">
+            <button type="button" class="btn btn-primary h-install-btn" data-install-btn>Nainstalovat zdarma</button>
+            <button type="button" class="btn btn-secondary" data-share-app>Sdílet Kapku života</button>
+          </div>
+        </div>
+
         ${actionsHtml}
 
         <div class="h-grid">
@@ -255,8 +270,11 @@
         </div>
 
         <p class="h-foot">
-          <button type="button" class="linkish" data-go="newdonor">Informace pro nové dárce</button>
-          · Zdarma, bez reklam a bez registrace. Data zůstávají ve Vašem zařízení.
+          <button type="button" class="linkish" data-go="guide">Jak Kapka života funguje</button>
+          · <button type="button" class="linkish" data-go="newdonor">Informace pro nové dárce</button>
+          · <button type="button" class="linkish" data-go="share">QR kód a leták</button>
+          · <button type="button" class="linkish" data-go="about">O aplikaci</button>
+          <br />Zdarma, bez reklam a bez registrace. Data zůstávají ve Vašem zařízení.
         </p>
       </section>`;
 
@@ -267,7 +285,10 @@
       reminders: '/reminders',
       'reminder-add': '/reminders/add',
       newdonor: '/newdonor',
-      settings: '/settings'
+      settings: '/settings',
+      guide: '/settings/guide',
+      share: '/settings/share',
+      about: '/settings/about'
     };
     outlet.querySelectorAll('[data-go]').forEach((btn) => {
       btn.onclick = () => {

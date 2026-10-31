@@ -1,34 +1,54 @@
 /* Kapka života — service worker
- * v5: soubory v index.html mají ?v=5, aby se po aktualizaci hned načetla nová verze
+ * Autor projektu: Vladimír Holub. © 2026 Vladimír Holub. Všechna práva vyhrazena.
+ * APP_VERSION musí odpovídat js/version.js a ?v= v index.html (hlídá tests/version.test.js).
+ * Soubory mají ?v=<verze>, aby se po aktualizaci hned načetla nová verze
  * (stará cache je jinak cache-first). Data v localStorage SW nikdy nemaže. */
-const CACHE = 'kapka-zivota-shell-v5';
+const APP_VERSION = '1.2.0';
+const CACHE = 'kapka-zivota-shell-v6-' + APP_VERSION;
+const V = '?v=' + APP_VERSION;
 const PRECACHE = [
   './',
   './index.html',
   './manifest.webmanifest',
-  './css/app.css?v=5',
-  './js/app.js?v=5',
-  './js/store.js?v=5',
-  './js/router.js?v=5',
-  './js/eligibility.js?v=5',
-  './js/screens/welcome.js?v=5',
-  './js/screens/home.js?v=5',
-  './js/screens/diary.js?v=5',
-  './js/screens/reminders.js?v=5',
-  './js/screens/stations.js?v=5',
-  './js/screens/newdonor.js?v=5',
-  './js/screens/settings.js?v=5',
-  './js/screens/backup.js?v=5',
+  './css/app.css' + V,
+  './js/version.js' + V,
+  './js/share.js' + V,
+  './js/app.js' + V,
+  './js/store.js' + V,
+  './js/router.js' + V,
+  './js/eligibility.js' + V,
+  './js/screens/welcome.js' + V,
+  './js/screens/home.js' + V,
+  './js/screens/diary.js' + V,
+  './js/screens/reminders.js' + V,
+  './js/screens/stations.js' + V,
+  './js/screens/newdonor.js' + V,
+  './js/screens/settings.js' + V,
+  './js/screens/backup.js' + V,
+  './js/screens/info.js' + V,
   './data/stations.json',
   './icons/icon-192.png',
   './icons/icon-512.png',
   './icons/icon-512-maskable.png',
-  './icons/icon.svg'
+  './icons/icon.svg',
+  './share/qr-kapka-zivota.svg',
+  './share/qr-kapka-zivota.png',
+  './share/letak.html',
+  './share/letak-kapka-zivota.pdf'
 ];
+
+const SCOPE_PATH = new URL('./', self.location).pathname;
+function isAppShell(url) {
+  return url.pathname === SCOPE_PATH || url.pathname === SCOPE_PATH + 'index.html';
+}
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(CACHE).then((cache) => cache.addAll(PRECACHE)).then(() => self.skipWaiting())
+    caches
+      .open(CACHE)
+      // cache: 'reload' obejde HTTP cache, aby se do nové verze nedostaly staré soubory
+      .then((cache) => cache.addAll(PRECACHE.map((u) => new Request(u, { cache: 'reload' }))))
+      .then(() => self.skipWaiting())
   );
 });
 
@@ -52,11 +72,21 @@ self.addEventListener('fetch', (event) => {
     event.respondWith(
       fetch(req)
         .then((res) => {
-          const copy = res.clone();
-          caches.open(CACHE).then((c) => c.put('./index.html', copy));
+          if (res.ok) {
+            const copy = res.clone();
+            // Jen aplikace samotná se ukládá jako index.html; jiné stránky (např. leták) pod svou adresou.
+            const key = isAppShell(url) ? './index.html' : url.origin + url.pathname;
+            caches.open(CACHE).then((c) => c.put(key, copy));
+          }
           return res;
         })
-        .catch(() => caches.match('./index.html'))
+        .catch(() =>
+          isAppShell(url)
+            ? caches.match('./index.html')
+            : caches
+                .match(url.origin + url.pathname, { ignoreSearch: true })
+                .then((r) => r || caches.match('./index.html'))
+        )
     );
     return;
   }

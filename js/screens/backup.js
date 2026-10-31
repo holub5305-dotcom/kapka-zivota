@@ -17,7 +17,7 @@
     outlet.innerHTML = `
       <section class="screen" aria-labelledby="bk-title">
         <header class="screen-header">
-          <button type="button" class="btn btn-ghost btn-sm" data-back>← Nastavení</button>
+          <button type="button" class="btn btn-ghost btn-sm" data-back>← Více</button>
           <h1 id="bk-title">Export a obnova</h1>
           <p class="sub">Bezpečná záloha deníku a připomínek</p>
         </header>

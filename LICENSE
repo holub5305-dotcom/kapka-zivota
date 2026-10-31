@@ -1,0 +1,60 @@
+Kapka života
+Bezplatná česká aplikace pro dárce krve a plazmy.
+Autor projektu: Vladimír Holub
+
+© 2026 Vladimír Holub. Všechna práva vyhrazena.
+
+PODMÍNKY UŽITÍ
+==============
+
+Tento projekt (zdrojový kód, texty, grafika, ikony, leták a QR kód) NENÍ
+vydán pod žádnou open-source licencí. Veřejná dostupnost repozitáře
+neznamená udělení licence k jeho užití.
+
+Dovoleno je bez dalšího svolení:
+  • zdarma používat aplikaci Kapka života na oficiální adrese
+    https://holub5305-dotcom.github.io/kapka-zivota/ ,
+  • sdílet odkaz na aplikaci, její QR kód a informační leták
+    (včetně tisku a vyvěšení letáku) – a to i nemocnicemi, organizacemi
+    a dárci, za předpokladu, že nebudou měněny a bude zachováno
+    uvedení autora.
+
+Bez předchozího písemného souhlasu autora není dovoleno:
+  • kopírovat nebo dále šířit zdrojový kód či jeho části,
+  • aplikaci nebo její části upravovat a zveřejňovat upravené verze,
+  • vydávat aplikaci nebo její části za svůj vlastní projekt,
+    odstraňovat nebo měnit údaje o autorovi,
+  • tvrdit nebo naznačovat, že aplikaci vydává, schválila nebo
+    provozuje jiná osoba či organizace.
+
+Nemocnice, organizace i dárci mohou aplikaci zdarma doporučovat a sdílet.
+Bez svolení autora ji však nesmějí vydávat za svůj vlastní projekt.
+
+Aplikace není oficiální zdravotnickou službou a nenahrazuje doporučení
+odběrového centra ani lékaře. Je poskytována tak, jak je, bez záruky.
+
+KOMPONENTY A ZDROJE TŘETÍCH STRAN
+================================
+
+Webová aplikace (PWA) nepoužívá žádné knihovny třetích stran, externí CDN,
+webová písma ani analytické služby. Části a zdroje, které nejsou autorským
+dílem autora projektu, se řídí vlastními podmínkami:
+
+  • Údaje o odběrových místech (data/stations.json) – faktické údaje
+    převzaté z veřejně dostupných zdrojů: mapa pracovišť Společnosti pro
+    transfuzní lékařství ČLS JEP (transfuznispolecnost.cz), caraplasma.cz,
+    biolifeplazma.cz, unicaplasma.cz. Údaje mohou být neaktuální.
+  • Orientační intervaly odběrů – vyhláška č. 143/2008 Sb., příloha č. 3
+    (úřední dílo, § 3 zákona č. 121/2000 Sb.).
+  • QR kód (share/qr-kapka-zivota.*) – vygenerován nástrojem segno
+    (BSD-3-Clause, https://github.com/heuer/segno); knihovna není součástí
+    aplikace. „QR Code“ je ochranná známka DENSO WAVE INCORPORATED.
+  • Písmo – systémová písma zařízení (nejsou součástí aplikace).
+  • Volitelné nativní obaly v adresářích mobile/ a desktop/ používají
+    Capacitor (MIT) a Tauri (MIT / Apache-2.0) a jejich závislosti
+    pod jejich vlastními licencemi; nejsou součástí webové aplikace.
+  • Vývojové a testovací nástroje (např. Playwright, Puppeteer, Chromium)
+    se s aplikací nešíří.
+
+Žádost o svolení: kontaktujte autora projektu Vladimíra Holuba
+(prostřednictvím GitHub účtu holub5305-dotcom).

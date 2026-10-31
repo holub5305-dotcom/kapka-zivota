@@ -1,11 +1,30 @@
 # Kapka života
 
-Osobní PWA pro dárce krve a plazmy v České republice.
+Bezplatná česká aplikace pro dárce krve a plazmy.
+
+**Autor projektu: Vladimír Holub**
+© 2026 Vladimír Holub. Všechna práva vyhrazena. Podmínky užití viz [LICENSE](LICENSE) (nejde o open-source licenci).
+
+Oficiální adresa: https://holub5305-dotcom.github.io/kapka-zivota/
+Aktuální verze: 1.2.0 (`js/version.js`)
 
 - **Zdarma**, bez povinné registrace
 - Data zůstávají ve Vašem prohlížeči (`localStorage`, klíč `kapka-zivota-v1`)
 - Nejde o oficiální aplikaci nemocnic ani Českého červeného kříže
-- Nestanovuje zdravotní způsobilost ani automatické datum dalšího odběru
+- Nestanovuje zdravotní způsobilost; datum dalšího odběru na Domů je jen orientační podle obecných pravidel (vyhláška č. 143/2008 Sb.)
+- Aplikace není oficiální zdravotnickou službou a nenahrazuje doporučení odběrového centra ani lékaře
+
+## Sdílení, QR kód a leták
+
+- QR kód na oficiální adresu: [`share/qr-kapka-zivota.png`](share/qr-kapka-zivota.png) (1200 × 1200 px), [`share/qr-kapka-zivota.svg`](share/qr-kapka-zivota.svg) (vektor pro tisk)
+- Leták k tisku (A4): [`share/letak.html`](share/letak.html), PDF: [`share/letak-kapka-zivota.pdf`](share/letak-kapka-zivota.pdf)
+- V aplikaci: Více → Instalace a sdílení / QR kód a leták / O aplikaci
+
+Nemocnice, organizace i dárci mohou aplikaci zdarma doporučovat a sdílet. Bez svolení autora ji však nesmějí vydávat za svůj vlastní projekt.
+
+## Verze a aktualizace
+
+Číslo verze je v `js/version.js` a musí odpovídat `APP_VERSION` v `sw.js` a `?v=` odkazům v `index.html` (hlídá `tests/version.test.js`). Při každé změně zvyšte verzi na všech třech místech.
 
 ## Lokální spuštění
 
