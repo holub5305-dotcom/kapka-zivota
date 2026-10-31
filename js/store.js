@@ -152,7 +152,13 @@
     if (!item.datetime) throw new Error('Datum a čas jsou povinné');
     return update((s) => {
       const i = s.reminders.findIndex((r) => r.id === item.id);
-      if (i >= 0) s.reminders[i] = Object.assign({}, s.reminders[i], item, { notifiedAt: s.reminders[i].notifiedAt || null });
+      if (i >= 0) {
+        const prev = s.reminders[i];
+        // v1.2.5: při změně termínu nebo času upozornění se připomínka znovu ohlásí;
+        // úprava jen názvu/poznámky stav „už upozorněno“ zachová.
+        const keep = notifyTimeChanged(prev, item) ? null : prev.notifiedAt || null;
+        s.reminders[i] = Object.assign({}, prev, item, { notifiedAt: keep });
+      }
       else s.reminders.push(item);
       return s;
     });
@@ -171,6 +177,20 @@
       if (r) r.notifiedAt = new Date().toISOString();
       return s;
     });
+  }
+
+  function timeOf(v) {
+    const t = new Date(v).getTime();
+    return Number.isNaN(t) ? null : t;
+  }
+
+  /** v1.2.5: změnil se termín nebo okamžik upozornění? */
+  function notifyTimeChanged(prev, next) {
+    if (!prev || !next) return true;
+    if (timeOf(prev.datetime) !== timeOf(next.datetime)) return true;
+    const a = notifyAtFor(prev);
+    const b = notifyAtFor(next);
+    return (a ? a.getTime() : null) !== (b ? b.getTime() : null);
   }
 
   function notifyAtFor(reminder) {
@@ -320,6 +340,7 @@
     deleteReminder,
     markReminderNotified,
     notifyAtFor,
+    notifyTimeChanged,
     setWelcomeDone,
     setTheme,
     setDonorSex,

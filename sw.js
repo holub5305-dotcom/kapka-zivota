@@ -3,8 +3,8 @@
  * APP_VERSION musí odpovídat js/version.js a ?v= v index.html (hlídá tests/version.test.js).
  * Soubory mají ?v=<verze>, aby se po aktualizaci hned načetla nová verze
  * (stará cache je jinak cache-first). Data v localStorage SW nikdy nemaže. */
-const APP_VERSION = '1.2.4';
-const CACHE = 'kapka-zivota-shell-v10-' + APP_VERSION;
+const APP_VERSION = '1.2.5';
+const CACHE = 'kapka-zivota-shell-v11-' + APP_VERSION;
 const V = '?v=' + APP_VERSION;
 const PRECACHE = [
   './',
@@ -23,6 +23,7 @@ const PRECACHE = [
   './js/screens/home.js' + V,
   './js/screens/diary.js' + V,
   './js/ics.js' + V,
+  './js/notify.js' + V,
   './js/screens/reminders.js' + V,
   './js/screens/stations.js' + V,
   './js/screens/newdonor.js' + V,
@@ -124,13 +125,14 @@ self.addEventListener('notificationclick', (event) => {
 self.addEventListener('message', (event) => {
   const data = event.data || {};
   if (data.type === 'SHOW_NOTIFICATION' && self.registration.showNotification) {
-    const title = data.title || 'Kapka života';
+    const title = data.title || 'Kapka života – připomínka';
     const options = Object.assign(
       {
         body: data.body || '',
         icon: './icons/icon-192.png',
         badge: './icons/icon-192.png',
         tag: data.tag || 'kapka-reminder',
+        timestamp: typeof data.timestamp === 'number' ? data.timestamp : Date.now(),
         data: data.payload || {}
       },
       data.options || {}

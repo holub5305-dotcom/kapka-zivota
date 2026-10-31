@@ -110,7 +110,7 @@
         </header>
 
         <p class="notif-hint" id="notif-hint" role="status" hidden></p>
-        <p class="rem-limit">Upozornění z prohlížeče může při zamčeném telefonu nebo zavřené aplikaci přijít se zpožděním. Pro jistotu si termín uložte do kalendáře.</p>
+        <p class="rem-limit">Kapka života připomíná termíny přímo v aplikaci. Když je telefon zamčený nebo aplikace zavřená, může upozornění přijít až po rozsvícení displeje. Spolehlivější je uložit termín tlačítkem „Uložit do kalendáře“ do kalendáře v telefonu (nejlépe do účtu Telefon / V zařízení) a k důležitým termínům si nastavit také budík v aplikaci Hodiny.</p>
         ${isIOS() ? '' : batteryHelpHtml()}
 
         <div class="card-list">

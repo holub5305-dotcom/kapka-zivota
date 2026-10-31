@@ -25,26 +25,35 @@
       .replace(/"/g, '&quot;');
   }
 
-  async function showNotification(title, body, tag) {
+  async function showNotification(title, body, tag, timestamp) {
     if ('Notification' in window && Notification.permission === 'granted') {
       try {
         const reg = await navigator.serviceWorker.getRegistration();
+        const options = {
+          body,
+          icon: 'icons/icon-192.png',
+          badge: 'icons/icon-192.png',
+          tag: tag || 'kapka-reminder'
+        };
+        if (typeof timestamp === 'number') options.timestamp = timestamp;
         if (reg && reg.showNotification) {
-          await reg.showNotification(title, {
-            body,
-            icon: 'icons/icon-192.png',
-            badge: 'icons/icon-192.png',
-            tag: tag || 'kapka-reminder'
-          });
+          await reg.showNotification(title, options);
           return;
         }
-        new Notification(title, { body, tag: tag || 'kapka-reminder' });
+        new Notification(title, options);
         return;
       } catch (e) {
         /* fall through to banner */
       }
     }
     showInAppBanner(title, body);
+  }
+
+  /** v1.2.5: jednotný titulek a text; pozdní doručení (> 2 min) se označí „Opožděné upozornění“. */
+  function notifyReminder(r, due) {
+    const n = KapkaNotify.build(r, due, Date.now());
+    showNotification(n.title, n.body, n.tag, n.timestamp);
+    KapkaStore.markReminderNotified(r.id);
   }
 
   function clearTimers() {
@@ -63,19 +72,13 @@
       const eventTime = new Date(r.datetime).getTime();
       // Already past notify window but event still upcoming → banner once per open if not marked
       if (due <= now && eventTime > now - 3600000) {
-        if (!r.notifiedAt) {
-          showNotification('Kapka života', r.title + ' — ' + new Date(r.datetime).toLocaleString('cs-CZ'), r.id);
-          KapkaStore.markReminderNotified(r.id);
-        }
+        if (!r.notifiedAt) notifyReminder(r, due);
         continue;
       }
       const delay = due - now;
       // setTimeout max ~24.8 days; only schedule near-term
       if (delay > 0 && delay < 2147483647) {
-        const tid = setTimeout(() => {
-          showNotification('Kapka života', r.title + ' — ' + new Date(r.datetime).toLocaleString('cs-CZ'), r.id);
-          KapkaStore.markReminderNotified(r.id);
-        }, delay);
+        const tid = setTimeout(() => notifyReminder(r, due), delay);
         timers.set(r.id, tid);
       }
     }
