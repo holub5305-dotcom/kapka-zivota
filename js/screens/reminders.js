@@ -142,16 +142,7 @@
           <button type="button" class="btn btn-primary" data-add>Přidat</button>
         </header>
 
-        <div class="card info-card">
-          <h2 class="card-title">Oznámení v PWA — omezení</h2>
-          <ul class="bullets">
-            <li><strong>Android (Chrome):</strong> po instalaci na plochu a povolení oznámení fungují systémová upozornění nejlépe.</li>
-            <li><strong>iPhone / iPad:</strong> oznámení z webu jsou spolehlivá jen po „Přidat na plochu“ a udělení oprávnění (iOS 16.4+). Jinak spoléhejte na export do kalendáře.</li>
-            <li>Aplikace při otevření zkontroluje blízké termíny a může zobrazit banner. Pro jistotu vždy můžete exportovat .ics do kalendáře telefonu.</li>
-          </ul>
-          <button type="button" class="btn btn-secondary btn-sm" id="req-perm">Požádat o oprávnění k oznámením</button>
-          <p class="muted" id="perm-status"></p>
-        </div>
+        <p class="notif-hint" id="notif-hint" role="status" hidden></p>
 
         <div class="card-list">
           ${
@@ -193,17 +184,43 @@
         </div>
       </div>`;
 
-    const permStatus = outlet.querySelector('#perm-status');
-    if ('Notification' in window) {
-      permStatus.textContent = 'Stav oprávnění: ' + Notification.permission;
-    } else {
-      permStatus.textContent = 'Tento prohlížeč nepodporuje Notification API.';
+    // Krátké nenápadné upozornění jen tehdy, když oznámení nejsou povolená.
+    const hint = outlet.querySelector('#notif-hint');
+    function renderNotifHint() {
+      if (!hint) return;
+      if (!('Notification' in window)) {
+        hint.hidden = false;
+        hint.textContent = 'Upozornění se zobrazí při otevření aplikace. Termín si můžete uložit i do kalendáře (.ics).';
+        return;
+      }
+      const perm = Notification.permission;
+      if (perm === 'granted') {
+        hint.hidden = true;
+        hint.textContent = '';
+        return;
+      }
+      hint.hidden = false;
+      if (perm === 'denied') {
+        hint.textContent = 'Oznámení jsou zablokovaná. Povolit je můžete v nastavení prohlížeče nebo aplikace.';
+        return;
+      }
+      hint.innerHTML = '<span>Oznámení nejsou povolená.</span> <button type="button" class="btn btn-ghost btn-xs" id="notif-allow">Povolit</button>';
+      hint.querySelector('#notif-allow').onclick = async () => {
+        const p = await requestNotifyPermission();
+        if (p === 'granted') KapkaApp.scheduleReminderChecks();
+        renderNotifHint();
+      };
     }
-    outlet.querySelector('#req-perm').onclick = async () => {
-      const p = await requestNotifyPermission();
-      permStatus.textContent = 'Stav oprávnění: ' + p;
-      if (p === 'granted') KapkaApp.scheduleReminderChecks();
-    };
+    renderNotifHint();
+    try {
+      if (navigator.permissions && navigator.permissions.query) {
+        navigator.permissions.query({ name: 'notifications' }).then((st) => {
+          st.onchange = () => {
+            if (document.body.contains(hint)) renderNotifHint();
+          };
+        }).catch(() => {});
+      }
+    } catch (e) {}
 
     outlet.querySelectorAll('[data-add]').forEach((b) => (b.onclick = () => KapkaRouter.navigate('/reminders/add')));
     outlet.querySelectorAll('[data-edit]').forEach((b) => {

@@ -1425,3 +1425,23 @@ html[data-theme="dark"] .ok-note {
 .btn-secondary {
   color: var(--red-ink);
 }
+
+/* v1.2.1: nenápadné upozornění na nepovolená oznámení (Kalendář a připomínky) */
+.notif-hint {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 0.6rem;
+  margin: 0 0 0.75rem;
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+.notif-hint[hidden] {
+  display: none !important;
+}
+.btn-xs {
+  min-height: 30px;
+  padding: 0.15rem 0.7rem;
+  font-size: 0.85rem;
+  border-radius: 9px;
+}
