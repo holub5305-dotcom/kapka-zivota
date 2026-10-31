@@ -43,6 +43,14 @@
           </dl>
         </div>
 
+        <section class="card about-author" aria-labelledby="about-author-title">
+          <h2 class="card-title" id="about-author-title">O autorovi</h2>
+          <p class="about-author-name"><strong>Vladimír Holub</strong></p>
+          <p class="muted">Sázava, okres Benešov, Česká republika</p>
+          <p>Autor a zakladatel projektu Kapka života.</p>
+          <p>Kapka života je nezávislý, bezplatný projekt vytvořený s cílem pomáhat dárcům krve a plazmy s přehledem odběrů, termínů a užitečných informací.</p>
+        </section>
+
         <div class="card">
           <p class="about-disclaimer">${DISCLAIMER}</p>
           <p>${SHARE_RULE}</p>

@@ -2459,3 +2459,18 @@ html[data-theme="dark"] .btn-danger-ghost {
     min-width: 16rem;
   }
 }
+
+/* v1.2.7: Více → O aplikaci – část „O autorovi“ */
+.about-author .card-title {
+  margin: 0 0 var(--space-2);
+}
+.about-author p {
+  margin: 0 0 var(--space-2);
+}
+.about-author p:last-child {
+  margin-bottom: 0;
+}
+.about-author .about-author-name {
+  font-size: 1.05rem;
+  margin-bottom: 0.15rem;
+}
