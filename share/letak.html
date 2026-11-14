@@ -2,6 +2,7 @@
 <html lang="cs">
   <head>
     <meta charset="utf-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; manifest-src 'self'; worker-src 'self'; frame-src 'none'" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Vladimír Holub" />
     <meta name="copyright" content="© 2026 Vladimír Holub. Všechna práva vyhrazena." />
@@ -290,10 +291,6 @@
         <p>Oficiální adresa: <strong>https://holub5305-dotcom.github.io/kapka-zivota/</strong> · Šíření letáku a odkazu je vítáno.</p>
       </footer>
     </main>
-    <script>
-      document.getElementById('print-btn').addEventListener('click', function () {
-        window.print();
-      });
-    </script>
+    <script src="letak.js"></script>
   </body>
 </html>

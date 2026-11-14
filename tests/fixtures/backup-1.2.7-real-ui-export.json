@@ -1,0 +1,84 @@
+{
+  "app": "kapka-zivota",
+  "format": 1,
+  "exportedAt": "2026-11-14T17:23:40.907Z",
+  "data": {
+    "version": 1,
+    "welcomeDone": true,
+    "theme": "system",
+    "donorSex": "zena",
+    "donations": [
+      {
+        "id": "don-mwgocx2w-p5rfgqu",
+        "type": "Krev",
+        "date": "2025-12-01",
+        "place": "FN Motol",
+        "note": "bez potíží „česky“ & <b>tučně</b> \"uvozovky\" 'apostrof'",
+        "createdAt": "2026-11-14T17:23:37.208Z",
+        "updatedAt": "2026-11-14T17:23:37.208Z"
+      },
+      {
+        "id": "don-mwgocx9b-4q191md",
+        "type": "Plazma",
+        "date": "2026-03-15",
+        "place": "Plazmacentrum Brno",
+        "note": "",
+        "createdAt": "2026-11-14T17:23:37.439Z",
+        "updatedAt": "2026-11-14T17:23:37.439Z"
+      },
+      {
+        "id": "don-mwgocxfc-qopel17",
+        "type": "Krev",
+        "date": "2026-08-20",
+        "place": "",
+        "note": "víceřádková\npoznámka",
+        "createdAt": "2026-11-14T17:23:37.656Z",
+        "updatedAt": "2026-11-14T17:23:37.656Z"
+      }
+    ],
+    "reminders": [
+      {
+        "id": "rem-mwgocxnr-4hsdajo",
+        "title": "Odběr krve ÚVN",
+        "datetime": "2026-12-03T07:30:00.000Z",
+        "source": "Vlastní",
+        "stationId": "",
+        "stationName": "ÚVN Praha",
+        "notifyMode": "day_before",
+        "customNotifyAt": "",
+        "note": "nalačno ne",
+        "notifiedAt": null,
+        "createdAt": "2026-11-14T17:23:37.959Z",
+        "updatedAt": "2026-11-14T17:23:37.959Z"
+      },
+      {
+        "id": "rem-mwgocxvl-wz20fpv",
+        "title": "Plazma <test>",
+        "datetime": "2026-12-10T06:00:00.000Z",
+        "source": "Vlastní",
+        "stationId": "",
+        "stationName": "FN Brno",
+        "notifyMode": "custom",
+        "customNotifyAt": "2026-12-09T17:00:00.000Z",
+        "note": "",
+        "notifiedAt": null,
+        "createdAt": "2026-11-14T17:23:38.241Z",
+        "updatedAt": "2026-11-14T17:23:38.241Z"
+      },
+      {
+        "id": "rem-mwgocy2i-sy6w3pm",
+        "title": "Za 2 h",
+        "datetime": "2027-01-05T09:00:00.000Z",
+        "source": "Vlastní",
+        "stationId": "",
+        "stationName": "",
+        "notifyMode": "hours_2",
+        "customNotifyAt": "",
+        "note": "",
+        "notifiedAt": null,
+        "createdAt": "2026-11-14T17:23:38.490Z",
+        "updatedAt": "2026-11-14T17:23:38.490Z"
+      }
+    ]
+  }
+}

@@ -1,15 +1,12 @@
 (function () {
+  // v1.2.8: jednotné escapování (js/safe.js) – i apostrof a zpětný apostrof
   function escapeHtml(s) {
-    return String(s)
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;');
+    return KapkaSafe.esc(s);
   }
 
   function fmtDate(iso) {
     const d = new Date(iso + 'T12:00:00');
-    if (Number.isNaN(d.getTime())) return iso;
+    if (Number.isNaN(d.getTime())) return escapeHtml(iso);
     return d.toLocaleDateString('cs-CZ');
   }
 
@@ -83,16 +80,16 @@
               ? list
                   .map(
                     (d) => `
-            <article class="compact-card" data-id="${d.id}">
+            <article class="compact-card" data-id="${escapeHtml(d.id)}">
               <div class="compact-main">
-                <span class="badge badge-${d.type === 'Plazma' ? 'plasma' : 'blood'}">${d.type}</span>
+                <span class="badge badge-${d.type === 'Plazma' ? 'plasma' : 'blood'}">${escapeHtml(d.type)}</span>
                 <strong>${fmtDate(d.date)}</strong>
                 ${d.place ? `<span class="muted">${escapeHtml(d.place)}</span>` : ''}
                 ${d.note ? `<span class="note-line">${escapeHtml(d.note)}</span>` : ''}
               </div>
               <div class="compact-actions">
-                <button type="button" class="btn btn-ghost btn-sm" data-edit="${d.id}">Upravit</button>
-                <button type="button" class="btn btn-danger-ghost btn-sm" data-del="${d.id}">Smazat</button>
+                <button type="button" class="btn btn-ghost btn-sm" data-edit="${escapeHtml(d.id)}">Upravit</button>
+                <button type="button" class="btn btn-danger-ghost btn-sm" data-del="${escapeHtml(d.id)}">Smazat</button>
               </div>
             </article>`
                   )
@@ -165,7 +162,7 @@
           </fieldset>
           <label class="field">
             <span>Datum</span>
-            <input type="date" name="date" required value="${existing ? existing.date : ''}" />
+            <input type="date" name="date" required value="${existing ? escapeHtml(existing.date) : ''}" />
           </label>
           <label class="field">
             <span>Místo (volitelné)</span>

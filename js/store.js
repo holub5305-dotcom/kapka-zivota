@@ -241,39 +241,83 @@
     };
   }
 
+  /* —— v1.2.8: kontrola importovaných dat ——
+   * Soubor zálohy může být podvržený. Každé pole se proto převezme jen ve správném tvaru:
+   * id jen jako ^[A-Za-z0-9_-]{1,64}$ (jinak nové id), texty jen jako text s omezenou délkou,
+   * data a časy jen jako platné datum. Uložená data uživatele se tím nemění. */
+  const ID_RE = /^[A-Za-z0-9_-]{1,64}$/;
+  const YMD_RE = /^\d{4}-\d{2}-\d{2}$/;
+  const ISO_RE = /^\d{4}-\d{2}-\d{2}(T\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?(Z|[+-]\d{2}:?\d{2})?)?$/;
+  const MAX_ITEMS = 10000;
+
+  function safeId(v, prefix) {
+    return typeof v === 'string' && ID_RE.test(v) ? v : uid(prefix);
+  }
+
+  function safeText(v, max) {
+    if (typeof v === 'number' && Number.isFinite(v)) v = String(v);
+    if (typeof v !== 'string') return '';
+    return v.slice(0, max);
+  }
+
+  function safeYmd(v) {
+    if (typeof v !== 'string') return '';
+    const ymd = v.slice(0, 10);
+    if (!YMD_RE.test(ymd)) return '';
+    const d = new Date(ymd + 'T12:00:00Z');
+    return !Number.isNaN(d.getTime()) && d.toISOString().slice(0, 10) === ymd ? ymd : '';
+  }
+
+  function safeIso(v) {
+    if (typeof v !== 'string' || v.length > 40 || !ISO_RE.test(v)) return '';
+    return Number.isNaN(new Date(v).getTime()) ? '' : v;
+  }
+
+  function plainObjects(list) {
+    return (Array.isArray(list) ? list : [])
+      .slice(0, MAX_ITEMS)
+      .filter((x) => x && typeof x === 'object' && !Array.isArray(x));
+  }
+
   function parseImport(obj) {
-    if (!obj || typeof obj !== 'object') throw new Error('Neplatný soubor');
+    if (!obj || typeof obj !== 'object' || Array.isArray(obj)) throw new Error('Neplatný soubor');
     const data = obj.data || obj;
-    if (!data || typeof data !== 'object') throw new Error('Chybí data');
-    const donations = Array.isArray(data.donations) ? data.donations : [];
-    const reminders = Array.isArray(data.reminders) ? data.reminders : [];
+    if (!data || typeof data !== 'object' || Array.isArray(data)) throw new Error('Chybí data');
+    const now = new Date().toISOString();
     return {
-      welcomeDone: !!data.welcomeDone,
+      welcomeDone: data.welcomeDone === true,
       theme: ['system', 'light', 'dark'].includes(data.theme) ? data.theme : undefined,
       donorSex: ['muz', 'zena'].includes(data.donorSex) ? data.donorSex : undefined,
-      donations: donations.map((d) => ({
-        id: d.id || uid('don'),
-        type: d.type === 'Plazma' ? 'Plazma' : 'Krev',
-        date: String(d.date || '').slice(0, 10),
-        place: String(d.place || ''),
-        note: String(d.note || ''),
-        createdAt: d.createdAt || new Date().toISOString(),
-        updatedAt: d.updatedAt || new Date().toISOString()
-      })).filter((d) => d.date),
-      reminders: reminders.map((r) => ({
-        id: r.id || uid('rem'),
-        title: String(r.title || 'Připomínka'),
-        datetime: String(r.datetime || r.date || ''),
-        source: r.source === 'Ze stanice' ? 'Ze stanice' : 'Vlastní',
-        stationId: r.stationId || '',
-        stationName: String(r.stationName || ''),
-        notifyMode: ['day_before', 'hours_2', 'custom'].includes(r.notifyMode) ? r.notifyMode : 'day_before',
-        customNotifyAt: String(r.customNotifyAt || ''),
-        note: String(r.note || ''),
-        notifiedAt: r.notifiedAt || null,
-        createdAt: r.createdAt || new Date().toISOString(),
-        updatedAt: r.updatedAt || new Date().toISOString()
-      })).filter((r) => r.datetime)
+      donations: plainObjects(data.donations)
+        .map((d) => ({
+          id: safeId(d.id, 'don'),
+          type: d.type === 'Plazma' ? 'Plazma' : 'Krev',
+          date: safeYmd(d.date),
+          place: safeText(d.place, 500),
+          note: safeText(d.note, 5000),
+          createdAt: safeIso(d.createdAt) || now,
+          updatedAt: safeIso(d.updatedAt) || now
+        }))
+        .filter((d) => d.date),
+      reminders: plainObjects(data.reminders)
+        .map((r) => {
+          const notifyMode = ['day_before', 'hours_2', 'custom'].includes(r.notifyMode) ? r.notifyMode : 'day_before';
+          return {
+            id: safeId(r.id, 'rem'),
+            title: safeText(r.title, 500) || 'Připomínka',
+            datetime: safeIso(r.datetime) || safeIso(r.date),
+            source: r.source === 'Ze stanice' ? 'Ze stanice' : 'Vlastní',
+            stationId: typeof r.stationId === 'string' && ID_RE.test(r.stationId) ? r.stationId : '',
+            stationName: safeText(r.stationName, 500),
+            notifyMode,
+            customNotifyAt: safeIso(r.customNotifyAt),
+            note: safeText(r.note, 5000),
+            notifiedAt: safeIso(r.notifiedAt) || null,
+            createdAt: safeIso(r.createdAt) || now,
+            updatedAt: safeIso(r.updatedAt) || now
+          };
+        })
+        .filter((r) => r.datetime)
     };
   }
 
@@ -346,6 +390,7 @@
     setDonorSex,
     exportPayload,
     parseImport,
+    ID_RE,
     mergeImport,
     replaceImport,
     applyThemeToDocument

@@ -17,12 +17,9 @@
     };
   }
 
+  // v1.2.8: jednotné escapování (js/safe.js) – i apostrof a zpětný apostrof
   function escapeHtml(s) {
-    return String(s)
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;');
+    return KapkaSafe.esc(s);
   }
 
   async function showNotification(title, body, tag, timestamp) {
@@ -385,6 +382,8 @@
   }
 
   function init() {
+    // v1.2.8: ve vložené cizí stránce (rámu) se aplikace nespustí – viz js/safe.js
+    if (window.KapkaSafe && KapkaSafe.framed) return;
     KapkaStore.applyThemeToDocument();
     registerSW();
     wireInstall();

@@ -1,0 +1,84 @@
+{
+  "app": "kapka-zivota",
+  "format": 1,
+  "exportedAt": "2026-11-14T17:04:24.538Z",
+  "data": {
+    "version": 1,
+    "welcomeDone": true,
+    "theme": "dark",
+    "donorSex": "zena",
+    "donations": [
+      {
+        "id": "don-mwgno7o9-tynwt52",
+        "type": "Krev",
+        "date": "2025-11-03",
+        "place": "FN Motol",
+        "note": "bez potíží, „uvozovky“ & <b>",
+        "createdAt": "2026-11-14T17:04:24.537Z",
+        "updatedAt": "2026-11-14T17:04:24.537Z"
+      },
+      {
+        "id": "don-mwgno7o9-f82ltvx",
+        "type": "Plazma",
+        "date": "2026-01-15",
+        "place": "",
+        "note": "",
+        "createdAt": "2026-11-14T17:04:24.537Z",
+        "updatedAt": "2026-11-14T17:04:24.537Z"
+      },
+      {
+        "id": "don-mwgno7o9-djpmgzc",
+        "type": "Krev",
+        "date": "2026-03-20",
+        "place": "ÚVN Praha – O'Brien",
+        "note": "víceřádková\npoznámka",
+        "createdAt": "2026-11-14T17:04:24.537Z",
+        "updatedAt": "2026-11-14T17:04:24.537Z"
+      }
+    ],
+    "reminders": [
+      {
+        "id": "rem-mwgno7o9-v8d2h6s",
+        "title": "Odběr krve",
+        "datetime": "2026-12-03T07:30:00.000Z",
+        "source": "Vlastní",
+        "stationId": "",
+        "stationName": "FN Brno",
+        "notifyMode": "day_before",
+        "customNotifyAt": "",
+        "note": "nalačno ne",
+        "notifiedAt": null,
+        "createdAt": "2026-11-14T17:04:24.537Z",
+        "updatedAt": "2026-11-14T17:04:24.537Z"
+      },
+      {
+        "id": "rem-mwgno7o9-sghb046",
+        "title": "Plazma",
+        "datetime": "2026-12-10T06:00:00.000Z",
+        "source": "Ze stanice",
+        "stationId": "uvn-praha",
+        "stationName": "ÚVN",
+        "notifyMode": "custom",
+        "customNotifyAt": "2026-12-09T17:00:00.000Z",
+        "note": "",
+        "notifiedAt": null,
+        "createdAt": "2026-11-14T17:04:24.537Z",
+        "updatedAt": "2026-11-14T17:04:24.537Z"
+      },
+      {
+        "id": "rem-mwgno7oa-vh8t1z7",
+        "title": "Za 2 h",
+        "datetime": "2026-06-01T08:00:00.000Z",
+        "source": "Vlastní",
+        "stationId": "",
+        "stationName": "",
+        "notifyMode": "hours_2",
+        "customNotifyAt": "",
+        "note": "",
+        "notifiedAt": "2026-06-01T08:00:12.345Z",
+        "createdAt": "2026-11-14T17:04:24.538Z",
+        "updatedAt": "2026-11-14T17:04:24.538Z"
+      }
+    ]
+  }
+}

@@ -30,13 +30,13 @@
   function fmtDate(iso, opts) {
     if (!iso) return '—';
     const d = parseLocal(iso);
-    if (Number.isNaN(d.getTime())) return iso;
+    if (Number.isNaN(d.getTime())) return escapeHtml(iso);
     return d.toLocaleDateString('cs-CZ', opts || { day: 'numeric', month: 'long', year: 'numeric' });
   }
 
   function fmtDateTime(iso) {
     const d = new Date(iso);
-    if (Number.isNaN(d.getTime())) return iso;
+    if (Number.isNaN(d.getTime())) return escapeHtml(iso);
     return d.toLocaleString('cs-CZ', { day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit' });
   }
 
@@ -63,8 +63,9 @@
     return 'před ' + days + ' ' + plural(days, 'dnem', 'dny', 'dny');
   }
 
+  // v1.2.8: jednotné escapování (js/safe.js) – i apostrof a zpětný apostrof
   function escapeHtml(s) {
-    return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    return KapkaSafe.esc(s);
   }
 
   function motivation(total, thisYear) {

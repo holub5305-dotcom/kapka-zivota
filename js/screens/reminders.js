@@ -1,15 +1,12 @@
 (function () {
+  // v1.2.8: jednotné escapování (js/safe.js) – i apostrof a zpětný apostrof
   function escapeHtml(s) {
-    return String(s)
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;');
+    return KapkaSafe.esc(s);
   }
 
   function fmtDateTime(iso) {
     const d = new Date(iso);
-    if (Number.isNaN(d.getTime())) return iso;
+    if (Number.isNaN(d.getTime())) return escapeHtml(iso);
     return d.toLocaleString('cs-CZ', {
       day: 'numeric',
       month: 'short',
@@ -54,7 +51,7 @@
     const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
     const a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
-    a.download = 'kapka-' + (reminder.id || 'termin') + '.ics';
+    a.download = 'kapka-' + (KapkaSafe.isSafeId(reminder.id) ? reminder.id : 'termin') + '.ics';
     document.body.appendChild(a);
     a.click();
     setTimeout(() => {
@@ -145,9 +142,9 @@
                 ${r.note ? `<span class="note-line">${escapeHtml(r.note)}</span>` : ''}
               </div>
               <div class="compact-actions wrap">
-                <button type="button" class="btn btn-ghost btn-sm" data-ics="${r.id}">Uložit do kalendáře</button>
-                <button type="button" class="btn btn-ghost btn-sm" data-edit="${r.id}">Upravit</button>
-                <button type="button" class="btn btn-danger-ghost btn-sm" data-del="${r.id}">Smazat</button>
+                <button type="button" class="btn btn-ghost btn-sm" data-ics="${escapeHtml(r.id)}">Uložit do kalendáře</button>
+                <button type="button" class="btn btn-ghost btn-sm" data-edit="${escapeHtml(r.id)}">Upravit</button>
+                <button type="button" class="btn btn-danger-ghost btn-sm" data-del="${escapeHtml(r.id)}">Smazat</button>
               </div>
             </article>`
                   )
