@@ -40,10 +40,10 @@
         <div class="card">
           <h2 class="card-title">Orientační termíny (nepovinné)</h2>
           <fieldset class="fieldset">
-            <legend>Roční limit odběrů plné krve podle vyhlášky č. 143/2008 Sb.</legend>
-            <label class="radio-row"><input type="radio" name="donorSex" value="" ${!state.donorSex ? 'checked' : ''} /> Neuvádět (obecně 4× za 12 měsíců)</label>
-            <label class="radio-row"><input type="radio" name="donorSex" value="zena" ${state.donorSex === 'zena' ? 'checked' : ''} /> Žena (nejvýše 4× za 12 měsíců)</label>
-            <label class="radio-row"><input type="radio" name="donorSex" value="muz" ${state.donorSex === 'muz' ? 'checked' : ''} /> Muž (nejvýše 5× za 12 měsíců)</label>
+            <legend>Doporučený roční limit odběrů plné krve (STL ČLS JEP, 2024)</legend>
+            <label class="radio-row"><input type="radio" name="donorSex" value="" ${!state.donorSex ? 'checked' : ''} /> Neuvádět (opatrně 3× za 12 měsíců)</label>
+            <label class="radio-row"><input type="radio" name="donorSex" value="zena" ${state.donorSex === 'zena' ? 'checked' : ''} /> Žena (doporučeně nejvýše 3× za 12 měsíců)</label>
+            <label class="radio-row"><input type="radio" name="donorSex" value="muz" ${state.donorSex === 'muz' ? 'checked' : ''} /> Muž (doporučeně nejvýše 4× za 12 měsíců)</label>
           </fieldset>
           <p class="muted">Údaj je nepovinný, zůstává jen ve Vašem zařízení a slouží pouze k orientačnímu výpočtu na Domů. Skutečný termín určuje odběrové centrum.</p>
         </div>

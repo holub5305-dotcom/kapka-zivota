@@ -72,7 +72,7 @@
             <li>Aplikace nepoužívá žádné externí knihovny, webová písma ani služby třetích stran; písmo je systémové.</li>
             <li>Ikony v aplikaci jsou vytvořené pro tento projekt.</li>
             <li>Přehled odběrových míst vychází z veřejně dostupných údajů (mapa pracovišť Společnosti pro transfuzní lékařství ČLS JEP a weby plazmacenter caraplasma.cz, biolifeplazma.cz, unicaplasma.cz). Kontakty si vždy ověřte u pracoviště.</li>
-            <li>Orientační intervaly vychází z vyhlášky č. 143/2008 Sb., příloha č. 3.</li>
+            <li>Orientační intervaly vychází z doporučení STL ČLS JEP č. STL_03 (verze 11, 2024) a z vyhlášky č. 143/2008 Sb., příloha č. 3 (zákonné maximum).</li>
             <li>QR kód byl vygenerován nástrojem segno (licence BSD-3-Clause). „QR Code“ je ochranná známka společnosti DENSO WAVE INCORPORATED.</li>
           </ul>
         </details>
@@ -89,7 +89,7 @@
           <h2 class="card-title">Co aplikace umí</h2>
           <ul class="bullets">
             <li><strong>Deník odběrů</strong> – zapisujete si odběry krve a plazmy, místo i poznámku.</li>
-            <li><strong>Orientační další termín</strong> – podle obecných pravidel (vyhláška č. 143/2008 Sb.). Skutečný termín vždy určuje odběrové centrum.</li>
+            <li><strong>Orientační další termín</strong> – podle doporučení STL ČLS JEP (2024) a vyhlášky č. 143/2008 Sb. Konečnou způsobilost a termín odběru stanovuje transfuzní pracoviště.</li>
             <li><strong>Připomínky</strong> – termíny odběrů a upozornění v zařízení.</li>
             <li><strong>Odběrová místa</strong> – přehled transfuzních oddělení a plazmacenter v ČR s kontakty.</li>
             <li><strong>Informace pro nové dárce</strong> – jak se dárcem stát a jak se připravit.</li>

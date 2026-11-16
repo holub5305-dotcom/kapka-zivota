@@ -4,7 +4,13 @@
  * NEJDE o lékařské potvrzení. Skutečnou způsobilost a termín určuje vždy
  * odběrové centrum (transfuzní oddělení / plazmacentrum) a zdravotní stav dárce.
  *
- * Zdroj pravidel (ověřeno 31. 10. 2026, aktuální znění vyhlášky k 1. 7. 2024):
+ * v1.2.10: plná krev podle doporučení STL (ověřeno 16. 11. 2026):
+ *   Doporučení Společnosti pro transfuzní lékařství ČLS JEP č. STL_03, verze 11 (2024_07_01), bod 2.1
+ *   https://www.transfuznispolecnost.cz/media/document/10ee2ef4c3bedd797f3301518d2db98e.pdf
+ *   - doporučený interval krev → krev 10 týdnů (výjimečně 8 týdnů);
+ *   - v průběhu 12 měsíců by neměl počet odběrů překročit 4 u mužů a 3 u žen
+ *     (výjimečně 5 / 4 s kontrolou zásob železa – jen informativně, rozhoduje pracoviště).
+ * Zákonné maximum (ověřeno 31. 10. 2026, aktuální znění vyhlášky k 1. 7. 2024):
  *   Vyhláška č. 143/2008 Sb., o lidské krvi, Příloha č. 3,
  *   bod 2 „Frekvence odběrů a maximální odebírané množství krve a jejích složek“
  *   https://www.zakonyprolidi.cz/cs/2008-143
@@ -23,17 +29,21 @@
  */
 (function (global) {
   const RULES = {
-    bloodToBloodDays: 56, // 8 týdnů
+    bloodToBloodDays: 70, // doporučený odstup 10 týdnů (STL_03 v11; zákonné minimum 8 týdnů)
     bloodToPlasmaDays: 28, // 4 týdny
     plasmaToBloodDays: 2, // 48 hodin
     plasmaToPlasmaDays: 14,
-    bloodPer12Months: { muz: 5, zena: 4, neuvedeno: 4 } // neuvedeno = konzervativně 4
+    bloodPer12Months: { muz: 4, zena: 3, neuvedeno: 3 } // doporučení STL_03 v11; neuvedeno = opatrně 3
   };
 
   const SOURCES = {
     vyhlaska: {
       label: 'vyhláška č. 143/2008 Sb., příloha č. 3',
       url: 'https://www.zakonyprolidi.cz/cs/2008-143'
+    },
+    stl03: {
+      label: 'doporučení STL ČLS JEP č. STL_03, verze 11 (2024)',
+      url: 'https://www.transfuznispolecnost.cz/media/document/10ee2ef4c3bedd797f3301518d2db98e.pdf'
     },
     stl: {
       label: 'Společnost pro transfuzní lékařství ČLS JEP',
@@ -105,7 +115,7 @@
     const bloodReasons = [];
     const cBB = lastBlood ? addDays(lastBlood, RULES.bloodToBloodDays) : null;
     const cPB = lastPlasma ? addDays(lastPlasma, RULES.plasmaToBloodDays) : null;
-    if (cBB) bloodReasons.push({ date: cBB, text: '8 týdnů od posledního odběru krve' });
+    if (cBB) bloodReasons.push({ date: cBB, text: 'doporučený odstup 10 týdnů od posledního odběru krve' });
     if (cPB) bloodReasons.push({ date: cPB, text: '48 hodin od posledního odběru plazmy' });
 
     // Roční limit: v libovolných 12 měsících nejvýše `limit` odběrů plné krve.
@@ -118,7 +128,7 @@
       cLimit = addMonths(nth, 12);
       bloodReasons.push({
         date: cLimit,
-        text: 'limit ' + limit + ' odběrů krve za 12 měsíců' + (sex === 'neuvedeno' ? ' (obecná, konzervativní varianta)' : '')
+        text: 'doporučený limit ' + limit + ' odběrů krve za 12 měsíců' + (sex === 'neuvedeno' ? ' (opatrný výpočet, pohlaví neuvedeno)' : '')
       });
     }
     const bloodDate = maxDate(bloodReasons.map((r) => r.date));

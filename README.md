@@ -11,7 +11,7 @@ Aktuální verze: 1.2.3 (`js/version.js`)
 - **Zdarma**, bez povinné registrace
 - Data zůstávají ve Vašem prohlížeči (`localStorage`, klíč `kapka-zivota-v1`)
 - Nejde o oficiální aplikaci nemocnic ani Českého červeného kříže
-- Nestanovuje zdravotní způsobilost; datum dalšího odběru na Domů je jen orientační podle obecných pravidel (vyhláška č. 143/2008 Sb.)
+- Nestanovuje zdravotní způsobilost; datum dalšího odběru na Domů je jen orientační podle doporučení STL ČLS JEP č. STL_03 v11 (2024) a vyhlášky č. 143/2008 Sb. (zákonné maximum)
 - Aplikace není oficiální zdravotnickou službou a nenahrazuje doporučení odběrového centra ani lékaře
 
 ## Sdílení, QR kód a leták

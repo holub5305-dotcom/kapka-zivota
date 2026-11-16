@@ -86,7 +86,7 @@
         <span class="h-type-ico">${typeIcon(kind)}</span>
         <div class="h-next-main">
           <span class="h-next-label">${label}</span>
-          <span class="h-next-reason">${info.isNowOrPast ? 'obecné minimální intervaly už uplynuly' : 'rozhoduje: ' + escapeHtml(info.reason)}</span>
+          <span class="h-next-reason">${info.isNowOrPast ? 'orientační intervaly už uplynuly' : 'rozhoduje: ' + escapeHtml(info.reason)}</span>
         </div>
         <div class="h-next-when">${when}</div>
       </li>`;
@@ -264,23 +264,29 @@
 
     // Stručné, nenápadné upozornění pod orientačním termínem (nahrazuje dřívější velký výstražný panel)
     const srcLinks = src
-      ? ` (<a href="${src.vyhlaska.url}" target="_blank" rel="noopener">vyhláška č. 143/2008 Sb.</a>; <a href="${src.stl.url}" target="_blank" rel="noopener">shrnutí STL ČLS JEP</a>)`
+      ? ` (<a href="${src.stl03.url}" target="_blank" rel="noopener">doporučení STL ČLS JEP, 2024</a>; zákonné maximum: <a href="${src.vyhlaska.url}" target="_blank" rel="noopener">vyhláška č. 143/2008 Sb.</a>)`
       : '';
-    const note = `<p class="h-note">Orientačně podle obecných pravidel${srcLinks}, nejde o lékařské potvrzení. Způsobilost určuje odběrové centrum.</p>`;
+    const note = `<p class="h-note">Orientačně podle obecných pravidel${srcLinks}, nejde o lékařské potvrzení. Konečnou způsobilost a termín odběru stanovuje transfuzní pracoviště.</p>`;
 
     let nextBody;
     if (elig.hasData) {
       const sexNote =
         elig.sex === 'neuvedeno'
-          ? `Roční limit krve počítáme obecně (konzervativně) jako ${elig.bloodLimit}× za 12 měsíců. <button type="button" class="linkish" data-go="settings">Upřesnit v Nastavení</button> (nepovinné).`
-          : `Roční limit krve: ${elig.bloodLimit}× za 12 měsíců (${elig.sex === 'muz' ? 'muži' : 'ženy'}).`;
+          ? ''
+          : `Doporučený roční limit krve: ${elig.bloodLimit}× za 12 měsíců (${elig.sex === 'muz' ? 'muži' : 'ženy'}).`;
+      const sexWarn =
+        elig.sex === 'neuvedeno'
+          ? `<p class="h-meta">Nemáte vyplněné pohlaví – termín je počítán opatrně (${elig.bloodLimit} odběry za 12 měsíců). Pohlaví můžete doplnit v <button type="button" class="linkish" data-go="settings">Nastavení</button>.</p>`
+          : '';
       nextBody = `
         <ul class="h-next-list">
           ${nextRow('Krev', elig.blood)}
           ${nextRow('Plazma', elig.plasma)}
         </ul>
+        ${sexWarn}
         ${note}
         <p class="h-meta">Krev za posledních 12 měsíců: <strong>${elig.bloodLast12} z ${elig.bloodLimit}</strong>. ${sexNote}</p>
+        <p class="h-meta">Ve výjimečných případech může transfuzní pracoviště po odborném posouzení povolit odstup 8 týdnů nebo až 5 odběrů u mužů a 4 u žen za 12 měsíců.</p>
         <p class="h-meta">Limit plazmy 25 litrů za 12 měsíců aplikace nepočítá (neeviduje objem).</p>
         <button type="button" class="btn btn-secondary h-cta" data-go="reminder-add">${icon('bell', 'ico-sm')} Naplánovat připomínku</button>`;
     } else {
