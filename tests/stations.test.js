@@ -24,6 +24,13 @@ for (const s of stations) {
   assert.ok(s.phone, 'phone on ' + s.id);
 }
 
+// v1.2.10: kontakty THO Benešov (ověřeno na hospital-bn.cz 16. 11. 2026)
+const benesov = stations.find((s) => s.id === 'benesov');
+assert.ok(benesov, 'benesov exists');
+assert.strictEqual(benesov.phone, '+420 702 123 192');
+assert.strictEqual(benesov.email, 'darci.krve@hospital-bn.cz');
+assert.strictEqual('tel:' + benesov.phone.replace(/\s+/g, ''), 'tel:+420702123192');
+
 const praha = stations.filter((s) => s.kraj === 'Hlavní město Praha');
 assert.ok(praha.length >= 1);
 
